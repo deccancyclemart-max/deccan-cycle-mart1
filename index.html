@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Looking for the best cycle shop near you? Deccan Cycle Mart offers trusted bicycle sales, accessories, expert repair, and free home pickup in Bollaram–Secunderabad. Rated top by 1500+ families!">
+    <meta name="keywords" content="cycle shop near me, bicycle sales, cycle repair, Deccan Cycle Mart, bike shop, Secunderabad, Bollaram, cycle service">
+    <meta name="author" content="Deccan Cycle Mart">
+    <title>Deccan Cycle Mart - Premium Cycle Sales & Service in Bollaram</title>
+    <link rel="icon" type="image/png" href="DECCAN.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#287cb2',
+                        'deep-blue': '#064771',
+                        'accent-yellow': '#fded0d',
+                        'dark-bg': '#0a1a2f',
+                        'very-dark-bg': '#020c1a',
+                        'hero-left-bg': '#0a1a2f',
+                        'hero-right-bg': '#287cb2',
+                        'brands-bg': '#041020',
+                        'whatsapp-green': '#25D366',
+                        'whatsapp-green-hover': '#1ebc59',
+                    },
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'] 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: #020c1a; /* Fallback color */
+            background-image: linear-gradient(170deg, #020c1a 5%, #0a1a2f 30%, #064771 60%, #0a1a2f 85%, #020c1a 100%);
+        }
+        /* Keyframes for the infinite scroll animation */
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        /* Class to apply the animation */
+        .animate-scroll {
+            animation: scroll 40s linear infinite;
+        }
+    </style>
+</head>
+<body class="text-white font-sans antialiased">
+    <div id="root" class="flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="fixed top-0 left-0 right-0 z-40 bg-black/20 backdrop-blur-lg border-b border-white/10">
+            <div class="max-w-screen-xl mx-auto px-6">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Left: Logo -->
+                    <a href="index.html" class="flex items-center gap-3">
+                        <img src="DECCAN.png" alt="Deccan Cycle Mart Logo" class="h-12 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x50/0a1a2f/ffffff?text=Logo';">
+                        <span class="text-xl font-bold text-white hidden sm:block">Deccan Cycle Mart</span>
+                    </a>
+                    
+                    <!-- Center: Navigation -->
+                    <nav class="hidden md:flex items-center space-x-10">
+                        <a href="index.html" class="relative text-white font-semibold px-3 py-2">
+                            Home
+                            <span class="absolute left-0 bottom-0 h-[2px] w-full bg-[#fded0d]"></span>
+                        </a>
+                        <a href="about.html" class="relative group text-white font-semibold px-3 py-2">
+                            About
+                            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#fded0d] group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="services.html" class="relative group text-white font-semibold px-3 py-2">
+                            Services
+                            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#fded0d] group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="media.html" class="relative group text-white font-semibold px-3 py-2">
+                            Media
+                            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#fded0d] group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                    </nav>
+
+                    <!-- Right: Contact Button -->
+                    <div class="hidden md:flex">
+                         <a href="contact.html" class="inline-block bg-accent-yellow text-deep-blue font-bold text-base px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Contact Us</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-white focus:outline-none">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 bg-dark-bg/95">
+                <a href="index.html" class="block py-2 text-lg text-accent-yellow font-bold">Home</a>
+                <a href="about.html" class="block py-2 text-lg transition-colors hover:text-accent-yellow">About</a>
+                <a href="services.html" class="block py-2 text-lg transition-colors hover:text-accent-yellow">Services</a>
+                <a href="media.html" class="block py-2 text-lg transition-colors hover:text-accent-yellow">Media</a>
+                <a href="contact.html" class="block mt-2 py-2 text-lg bg-accent-yellow text-deep-blue text-center rounded-md font-semibold">Contact Us</a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow">
+            <!-- Refined Hero Section -->
+            <section id="home" class="relative overflow-hidden pt-20">
+                <div class="flex flex-col md:flex-row">
+                    <!-- Left Column (Text) -->
+                    <div class="w-full md:w-1/2 bg-hero-left-bg flex flex-col justify-center">
+                        <div class="text-center md:text-left px-6 py-20 md:py-32 lg:px-16 max-w-2xl mx-auto">
+                            <h1 class="text-5xl lg:text-7xl font-black leading-tight mb-4 text-white">
+                                Bollaram’s Most <span class="text-primary-blue">Trusted</span> Cycle Shop
+                            </h1>
+                            <p class="text-lg md:text-xl text-gray-300 tracking-wide mb-8">
+                                Sales • Service • Customization • Free Home Pickup & Drop Service within 5 KM
+                            </p>
+                            <button type="button" class="open-modal-button inline-block bg-accent-yellow text-deep-blue font-bold text-lg px-10 py-4 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-accent-yellow/30">
+                                Book Free Home Service
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Right Column (Image) -->
+                    <div class="w-full md:w-1/2 bg-hero-right-bg flex items-center justify-center p-8 md:p-12">
+                        <img src="cool-bicycle-studio-removebg-preview.png" alt="A modern white mountain bike" class="w-full max-w-lg mx-auto h-auto transition-transform duration-500 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/287cb2/ffffff?text=Image+Missing';">
+                    </div>
+                </div>
+                <!-- Scrolling Brands Ticker -->
+                <div class="bg-brands-bg py-5 overflow-hidden whitespace-nowrap">
+                    <div class="inline-block animate-scroll">
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">FIREFOX</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">HERO</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">HERCULES</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">MONTRA</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">VICTOR 91</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">SCHNELL</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">ATLAS</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">AVON</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">BSA</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">KROSS</span>
+                    </div>
+                    <div class="inline-block animate-scroll">
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">FIREFOX</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">HERO</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">HERCULES</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">MONTRA</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">VICTOR 91</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">SCHNELL</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">ATLAS</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">AVON</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">BSA</span>
+                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">KROSS</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- What We Offer Section -->
+            <section id="features" class="py-16 md:py-20">
+                <div class="max-w-screen-xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-sans font-semibold tracking-wide">What We Offer</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🚲</div><h3 class="text-xl font-semibold mb-2">Sales</h3><p class="text-gray-400">Premium kids & adult cycles.</p></div>
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🛠️</div><h3 class="text-xl font-semibold mb-2">Spare Parts & Repairs</h3><p class="text-gray-400">Brakes, chains, tires, more.</p></div>
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🧰</div><h3 class="text-xl font-semibold mb-2">Customization</h3><p class="text-gray-400">Unique mods & styling.</p></div>
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🏠</div><h3 class="text-xl font-semibold mb-2">Free Pickup & Drop</h3><p class="text-gray-400">Within 5 km radius.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Who We Are Section -->
+            <section class="py-16 md:py-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-3xl mx-auto">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Who We Are</h2>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                            Deccan Cycle Mart is a modern and trusted cycle store, deeply rooted in the Bollaram community. We are passionate about providing top-quality bicycles and exceptional service to riders of all ages and skill levels.
+                        </p>
+                        <a href="about.html" class="inline-block bg-transparent border-2 border-accent-yellow text-accent-yellow font-bold text-lg px-8 py-3 rounded-lg shadow-lg transition-colors transform hover:bg-accent-yellow hover:text-deep-blue">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Us Section -->
+            <section class="py-16 md:py-24">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold">Why Choose Us?</h2>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">⭐</div><h3 class="text-xl font-bold mb-2">Top Brands</h3><p class="text-gray-400">We stock only the best and most reliable cycle brands.</p></div>
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🔧</div><h3 class="text-xl font-bold mb-2">Skilled Technicians</h3><p class="text-gray-400">Our expert team handles every repair with precision.</p></div>
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🚚</div><h3 class="text-xl font-bold mb-2">Free Pickup & Drop</h3><p class="text-gray-400">Convenient service right at your doorstep.</p></div>
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">💬</div><h3 class="text-xl font-bold mb-2">WhatsApp Support</h3><p class="text-gray-400">Get instant help and updates via chat.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visible Booking Form Section -->
+            <section id="booking" class="py-16 md:py-20">
+                <div class="max-w-screen-xl mx-auto px-6">
+                    <div class="max-w-xl mx-auto">
+                        <h2 class="text-4xl md:text-5xl font-sans font-semibold tracking-wide text-center mb-8">Book a Free Home Service</h2>
+                        <form action="https://formsubmit.co/deccancyclemart@gmail.com" method="POST" class="space-y-6">
+                            <div><input type="text" name="name" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Name"></div>
+                            <div><input type="tel" name="phone" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Phone Number"></div>
+                            <div>
+                                <textarea name="address" id="page-address" rows="3" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Full Address"></textarea>
+                                <button type="button" id="page-getLocationBtn" class="w-full mt-2 bg-deep-blue/60 hover:bg-deep-blue/90 text-white font-semibold py-2 px-4 border border-primary-blue/50 rounded-lg shadow-sm transition-colors flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    Use My Current Location
+                                </button>
+                                <p id="page-location-status" class="text-sm mt-2 h-5 text-center"></p>
+                            </div>
+                            <input type="hidden" name="coordinates" id="page-coordinates">
+                            <div><textarea name="service" id="service" rows="3" placeholder="e.g., Assembly, Repair, Tuning, etc." required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition"></textarea></div>
+                            <input type="hidden" name="_next" value="https://wa.me/918332993068?text=Hi, I just submitted a home service request on your website.">
+                            <input type="hidden" name="_subject" value="New Home Service Request!">
+                            <input type="hidden" name="_captcha" value="false">
+                            <button type="submit" class="w-full bg-accent-yellow text-deep-blue font-bold text-lg py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">Submit Request</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trust/CTA Bar Section -->
+            <section id="trust" class="py-16">
+                <div class="max-w-screen-xl mx-auto px-6">
+                    <div class="bg-white/10 rounded-xl p-8 text-center backdrop-blur-sm shadow-md">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">Trusted by 1500+ Happy Families in Bollaram–Secunderabad</h3>
+                        <button type="button" class="open-modal-button inline-block bg-accent-yellow text-deep-blue font-bold text-lg px-8 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">Book Now</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer id="footer" class="bg-dark-bg pt-20 pb-8">
+            <div class="max-w-screen-xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <!-- SEO Text Block -->
+                    <div class="lg:col-span-1">
+                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Let’s Stay Connected</h3>
+                        <p class="text-gray-400 font-light">Hi, we are always open for cooperation and suggestions. Contact us in one of the ways below.</p>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Quick Links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="index.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Home</a></li>
+                            <li><a href="services.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Services</a></li>
+                            <li><a href="media.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Media</a></li>
+                            <li><a href="contact.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Us -->
+                    <div>
+                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Contact Us</h3>
+                        <ul class="space-y-4 text-gray-300 font-light">
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg><a href="tel:+918332993068" class="hover:text-accent-yellow transition">+91 8332993068</a></li>
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/></svg><a href="https://wa.me/918332993068" target="_blank" rel="noopener noreferrer" class="hover:text-accent-yellow transition">WhatsApp: +91 8332993068</a></li>
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><a href="mailto:deccancyclemart@gmail.com" class="hover:text-accent-yellow transition">deccancyclemart@gmail.com</a></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>Opp Ushodaya, New Bollaram, Secunderabad 500010</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Embedded Map -->
+                    <div>
+                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Find Us on Google Maps</h3>
+                        <iframe src="https://www.google.com/maps?q=Deccan+Cycle+Mart,+New+Bollaram,+Secunderabad+500010&output=embed" class="rounded-xl shadow-md w-full h-48" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="mt-16 border-t border-primary-blue/30 pt-8 text-center text-gray-400">
+                    <p>© 2025 Deccan Cycle Mart. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918332993068?text=Hello!%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-whatsapp-green text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transform transition-transform hover:scale-110 hover:bg-whatsapp-green-hover">
+        <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/></svg>
+    </a>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none">
+        <!-- Modal content -->
+        <div id="modal-content" class="relative bg-deep-blue rounded-2xl shadow-2xl w-full max-w-xl p-8 transform transition-all duration-300 ease-in-out scale-95 opacity-0">
+            <button id="close-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="max-w-xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-sans font-semibold tracking-wide text-center mb-8">Book from Modal</h2>
+                <form action="https://formsubmit.co/deccancyclemart@gmail.com" method="POST" class="space-y-6">
+                    <div><input type="text" name="name" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Name"></div>
+                    <div><input type="tel" name="phone" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Phone Number"></div>
+                    <div>
+                        <textarea name="address" id="modal-address" rows="3" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Full Address"></textarea>
+                        <button type="button" id="modal-getLocationBtn" class="w-full mt-2 bg-deep-blue/60 hover:bg-deep-blue/90 text-white font-semibold py-2 px-4 border border-primary-blue/50 rounded-lg shadow-sm transition-colors flex items-center justify-center">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                           Use My Current Location
+                        </button>
+                        <p id="modal-location-status" class="text-sm mt-2 h-5 text-center"></p>
+                    </div>
+                    <input type="hidden" name="coordinates" id="modal-coordinates">
+                    <div><textarea name="service" id="modal-service" rows="3" placeholder="e.g., Assembly, Repair, Tuning, etc." required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition"></textarea></div>
+                    <input type="hidden" name="_next" value="https://wa.me/918332993068?text=Hi, I just submitted a home service request on your website.">
+                    <input type="hidden" name="_subject" value="New Home Service Request from MODAL!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <button type="submit" class="w-full bg-accent-yellow text-deep-blue font-bold text-lg py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // --- Booking Modal Logic ---
+        const bookingModal = document.getElementById('booking-modal');
+        const modalContent = document.getElementById('modal-content');
+        const openModalButtons = document.querySelectorAll('.open-modal-button');
+        const closeModalButton = document.getElementById('close-modal-button');
+
+        const openModal = () => {
+            bookingModal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('opacity-0', 'scale-95');
+        };
+
+        const closeModal = () => {
+            modalContent.classList.add('opacity-0', 'scale-95');
+            bookingModal.classList.add('opacity-0');
+            setTimeout(() => {
+                bookingModal.classList.add('pointer-events-none');
+            }, 300); 
+        };
+
+        openModalButtons.forEach(button => button.addEventListener('click', openModal));
+        closeModalButton.addEventListener('click', closeModal);
+        
+        bookingModal.addEventListener('click', (event) => {
+            if (event.target === bookingModal) {
+                closeModal();
+            }
+        });
+
+
+        // --- Geolocation Function ---
+        function initializeGeolocation(btnId, addressId, coordinatesId, statusId) {
+            const getLocationBtn = document.getElementById(btnId);
+            const addressTextarea = document.getElementById(addressId);
+            const coordinatesInput = document.getElementById(coordinatesId);
+            const locationStatus = document.getElementById(statusId);
+            const apiKey = 'pk.364e92e46f917958d4ccfed120c0b0e4';
+
+            if (!getLocationBtn) return;
+
+            getLocationBtn.addEventListener('click', () => {
+                if (!navigator.geolocation) {
+                    locationStatus.textContent = '❗ Geolocation is not supported by your browser.';
+                    locationStatus.className = 'text-sm mt-2 h-5 text-center text-red-500';
+                    return;
+                }
+
+                locationStatus.textContent = 'Fetching your location...';
+                locationStatus.className = 'text-sm mt-2 h-5 text-center text-gray-400';
+                getLocationBtn.disabled = true;
+
+                navigator.geolocation.getCurrentPosition(
+                    (position) => success(position, addressTextarea, coordinatesInput, locationStatus, getLocationBtn, apiKey),
+                    () => error(locationStatus, getLocationBtn)
+                );
+            });
+        }
+
+        function success(position, addressTextarea, coordinatesInput, locationStatus, getLocationBtn, apiKey) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            coordinatesInput.value = `${latitude}, ${longitude}`;
+            
+            const apiUrl = `https://us1.locationiq.com/v1/reverse.php?key=${apiKey}&lat=${latitude}&lon=${longitude}&format=json`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.display_name) {
+                        addressTextarea.value = data.display_name;
+                    }
+                })
+                .catch(err => {
+                    console.error('Error fetching address:', err);
+                })
+                .finally(() => {
+                    locationStatus.textContent = '✅ Location Captured Successfully';
+                    locationStatus.className = 'text-sm mt-2 h-5 text-center text-green-500';
+                    getLocationBtn.disabled = false;
+                });
+        }
+
+        function error(locationStatus, getLocationBtn) {
+            locationStatus.textContent = '❗ Unable to get location. Please enter address manually.';
+            locationStatus.className = 'text-sm mt-2 h-5 text-center text-red-500';
+            getLocationBtn.disabled = false;
+        }
+
+        // --- Initialize Geolocation for BOTH forms ---
+        // Initialize for the visible page form
+        initializeGeolocation('page-getLocationBtn', 'page-address', 'page-coordinates', 'page-location-status');
+        // Initialize for the modal form
+        initializeGeolocation('modal-getLocationBtn', 'modal-address', 'modal-coordinates', 'modal-location-status');
+
+    </script>
+</body>
+</html>
