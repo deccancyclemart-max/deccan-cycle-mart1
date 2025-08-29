@@ -25,6 +25,7 @@
                         'brands-bg': '#041020',
                         'whatsapp-green': '#25D366',
                         'whatsapp-green-hover': '#1ebc59',
+                        'facebook-blue': '#1877F2',
                     },
                     fontFamily: { 
                         sans: ['Inter', 'sans-serif'] 
@@ -68,6 +69,43 @@
         }
         .animate-scroll-right {
             animation: scroll-right 40s linear infinite;
+        }
+        
+        /* --- Glow Hover Effects for Social Icons --- */
+        .icon-glow-group:hover .icon-glow-instagram {
+            filter: drop-shadow(0 0 8px #E4405F);
+        }
+        .icon-glow-group:hover .icon-glow-whatsapp {
+            filter: drop-shadow(0 0 8px #25D366);
+        }
+        .icon-glow-group:hover .icon-glow-youtube {
+            filter: drop-shadow(0 0 8px #FF0000);
+        }
+        .icon-glow-group:hover .icon-glow-facebook {
+            filter: drop-shadow(0 0 8px #1877F2);
+        }
+        
+        /* --- Hide Scrollbar --- */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* --- Custom Shape for Testimonial Card --- */
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid rgba(255, 255, 255, 0.9); /* Matches card background */
+            transition: border-color 0.3s ease;
+        }
+
+        .testimonial-card:hover::before {
+             border-bottom-color: rgba(253, 237, 13, 0.5); /* Matches hover border color */
         }
     </style>
 </head>
@@ -177,86 +215,89 @@
             <!-- Section 3: Testimonials -->
             <section class="py-16 md:py-24 overflow-hidden">
                 <div class="max-w-screen-xl mx-auto px-6">
-                    <div class="text-center mb-16 animate-fade-up">
+                    <div class="text-center mb-24 animate-fade-up">
                         <h2 class="text-4xl lg:text-5xl font-bold text-white">What Families Say About Us</h2>
                         <p class="text-gray-300 mt-4">Trusted by 1500+ families in Bollaram and beyond.</p>
                     </div>
                 </div>
                 
                 <!-- Scrolling Testimonials Wrapper -->
-                <div class="space-y-8">
+                <div class="space-y-16">
                     <!-- Row 1: Scrolls Right to Left -->
                     <div class="w-full overflow-hidden">
                         <div class="scroller-inner animate-scroll-left">
-                            <!-- Duplicate content for seamless loop -->
                             <div class="flex space-x-8 px-4">
                                 <!-- Card 1 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/287cb2/ffffff?text=TM" alt="Taslim Mansori" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">Taslim Mansori</h4>
-                                            <p class="text-gray-400">Verified Customer</p>
+                                <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/287cb2/ffffff?text=TM" alt="Taslim Mansori" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Taslim Mansori</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"I had an excellent experience... The service was quick and hassle-free. I highly recommend them."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"I had an excellent experience at Deccan Cycle Mart. The service was quick and hassle-free. I highly recommend them for any vehicle repairs or services."</p>
                                 </div>
                                 <!-- Card 2 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/064771/ffffff?text=SK" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">Shaik Khaleel</h4>
-                                            <p class="text-gray-400">Happy Parent</p>
+                                <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/064771/ffffff?text=SK" alt="Shaik Khaleel" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Shaik Khaleel</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                           <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"Good service and response. Wide variety of kids' cycles available."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"Good service and response. Wide variety of kids' cycles available."</p>
                                 </div>
                                 <!-- Card 3 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/0a1a2f/ffffff?text=AS" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">A S</h4>
-                                            <p class="text-gray-400">Cycling Enthusiast</p>
+                                <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/0a1a2f/ffffff?text=AS" alt="A S" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">A S</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"A good place for all types of cycles and accessories. The owner is very friendly."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"A good place for all types of cycles and accessories. The owner is very friendly and explains everything in detail."</p>
                                 </div>
                             </div>
+                           <!-- Duplicated row -->
                            <div class="flex space-x-8 px-4">
-                                <!-- Card 1 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/287cb2/ffffff?text=TM" alt="Taslim Mansori" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">Taslim Mansori</h4>
-                                            <p class="text-gray-400">Verified Customer</p>
+                               <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/287cb2/ffffff?text=TM" alt="Taslim Mansori" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Taslim Mansori</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"I had an excellent experience... The service was quick and hassle-free. I highly recommend them."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"I had an excellent experience at Deccan Cycle Mart. The service was quick and hassle-free. I highly recommend them for any vehicle repairs or services."</p>
                                 </div>
-                                <!-- Card 2 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/064771/ffffff?text=SK" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">Shaik Khaleel</h4>
-                                            <p class="text-gray-400">Happy Parent</p>
+                                <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/064771/ffffff?text=SK" alt="Shaik Khaleel" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Shaik Khaleel</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"Good service and response. Wide variety of kids' cycles available."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"Good service and response. Wide variety of kids' cycles available."</p>
                                 </div>
-                                <!-- Card 3 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/0a1a2f/ffffff?text=AS" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">A S</h4>
-                                            <p class="text-gray-400">Cycling Enthusiast</p>
+                                <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/0a1a2f/ffffff?text=AS" alt="A S" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">A S</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"A good place for all types of cycles and accessories. The owner is very friendly."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"A good place for all types of cycles and accessories. The owner is very friendly and explains everything in detail."</p>
                                 </div>
                             </div>
                         </div>
@@ -265,75 +306,76 @@
                     <!-- Row 2: Scrolls Left to Right -->
                     <div class="w-full overflow-hidden">
                         <div class="scroller-inner animate-scroll-right">
-                            <!-- Duplicate content for seamless loop -->
-                            <div class="flex space-x-8 px-4">
+                           <div class="flex space-x-8 px-4">
                                 <!-- Card 4 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/041020/ffffff?text=S" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">Srinivas</h4>
-                                            <p class="text-gray-400">First-time Buyer</p>
+                                <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/041020/ffffff?text=S" alt="Srinivas" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Srinivas</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"Good cycle mart in this area. All types of cycles are available for kids and adults."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"Good cycle mart in this area. All types of cycles are available for kids and adults."</p>
                                 </div>
-                                <!-- Card 5 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/287cb2/ffffff?text=V" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">Venkat</h4>
-                                            <p class="text-gray-400">Regular Customer</p>
+                                <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/287cb2/ffffff?text=V" alt="Venkat" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Venkat</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"Excellent service and a fantastic collection of cycles. The staff is very knowledgeable."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"Excellent service and a fantastic collection of cycles. The staff is very knowledgeable."</p>
                                 </div>
-                                <!-- Card 6 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/064771/ffffff?text=P" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">Praveen</h4>
-                                            <p class="text-gray-400">Secunderabad</p>
+                                <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/064771/ffffff?text=P" alt="Praveen" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Praveen</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"Best place to buy cycles in the Bollaram area. Very satisfied with my purchase."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"Best place to buy cycles in the Bollaram area. Very satisfied with my purchase."</p>
                                 </div>
                             </div>
-                            <div class="flex space-x-8 px-4">
-                               <!-- Card 4 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/041020/ffffff?text=S" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">Srinivas</h4>
-                                            <p class="text-gray-400">First-time Buyer</p>
+                           <!-- Duplicated row -->
+                           <div class="flex space-x-8 px-4">
+                               <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/041020/ffffff?text=S" alt="Srinivas" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Srinivas</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"Good cycle mart in this area. All types of cycles are available for kids and adults."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"Good cycle mart in this area. All types of cycles are available for kids and adults."</p>
                                 </div>
-                                <!-- Card 5 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/287cb2/ffffff?text=V" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">Venkat</h4>
-                                            <p class="text-gray-400">Regular Customer</p>
+                                <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/287cb2/ffffff?text=V" alt="Venkat" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Venkat</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"Excellent service and a fantastic collection of cycles. The staff is very knowledgeable."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"Excellent service and a fantastic collection of cycles. The staff is very knowledgeable."</p>
                                 </div>
-                                <!-- Card 6 -->
-                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-                                    <div class="flex items-start gap-5">
-                                        <img src="https://placehold.co/64x64/064771/ffffff?text=P" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
-                                        <div>
-                                            <h4 class="text-xl font-bold text-white">Praveen</h4>
-                                            <p class="text-gray-400">Secunderabad</p>
+                                <div class="relative w-[400px] flex-shrink-0 mt-10">
+                                    <img src="https://placehold.co/80x80/064771/ffffff?text=P" alt="Praveen" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
+                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
+                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Praveen</h4>
+                                        <div class="flex items-center justify-center mb-4">
+                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                         </div>
+                                        <p class="text-deep-blue/80 italic text-lg">"Best place to buy cycles in the Bollaram area. Very satisfied with my purchase."</p>
                                     </div>
-                                    <p class="mt-5 text-gray-300 italic">"Best place to buy cycles in the Bollaram area. Very satisfied with my purchase."</p>
                                 </div>
                             </div>
                         </div>
@@ -346,8 +388,71 @@
                     </a>
                 </div>
             </section>
+            
+            <!-- Section 4: Community Section -->
+            <section class="py-16 md:py-24">
+                <div class="max-w-screen-xl mx-auto">
+                    <div class="text-center mb-12 animate-fade-up px-6">
+                        <h2 class="text-4xl lg:text-5xl font-bold text-white">Join Our Cycling Community 🚴‍♂️</h2>
+                        <p class="text-gray-300 mt-4 max-w-2xl mx-auto">We share tips, offers, and cycling stories daily. Follow us and be part of the ride!</p>
+                    </div>
+                    
+                    <!-- Social Cards Container -->
+                    <div class="flex overflow-x-auto space-x-8 pb-8 px-6 no-scrollbar">
+                        
+                        <!-- Instagram Card -->
+                        <div class="icon-glow-group flex-shrink-0 w-80 bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col text-center items-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-blue/20">
+                           <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                               <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" class="w-12 h-12 transition-all duration-300 icon-glow-instagram">
+                           </div>
+                           <div class="flex gap-2 mb-4">
+                               <img src="https://placehold.co/100x100/287cb2/ffffff?text=Ride" alt="cycle image 1" class="rounded-md w-1/3">
+                               <img src="https://placehold.co/100x100/064771/ffffff?text=Shop" alt="cycle image 2" class="rounded-md w-1/3">
+                               <img src="https://placehold.co/100x100/0a1a2f/ffffff?text=Joy" alt="cycle image 3" class="rounded-md w-1/3">
+                           </div>
+                           <h3 class="text-xl font-bold text-white mb-3 flex-grow">Follow us on Instagram</h3>
+                           <a href="https://www.instagram.com/deccancyclemart/" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Follow Now</a>
+                        </div>
+                        
+                        <!-- WhatsApp Card -->
+                        <div class="icon-glow-group flex-shrink-0 w-80 bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col text-center items-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-whatsapp-green/20">
+                           <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="w-12 h-12 transition-all duration-300 icon-glow-whatsapp">
+                           </div>
+                           <h3 class="text-xl font-bold text-white mb-3 flex-grow pt-24">Have a question? Chat with us instantly on WhatsApp</h3>
+                           <a href="https://wa.me/918332993068" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-whatsapp-green text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Chat Now</a>
+                        </div>
+                        
+                        <!-- YouTube Card -->
+                        <div class="icon-glow-group flex-shrink-0 w-80 bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col text-center items-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+                           <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Logo" class="w-12 h-auto transition-all duration-300 icon-glow-youtube">
+                           </div>
+                            <div class="relative w-full rounded-md overflow-hidden mb-4">
+                                <img src="https://placehold.co/300x150/020c1a/ffffff?text=Video+Preview" alt="video preview" class="w-full">
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/30">
+                                    <svg class="w-12 h-12 text-white/80" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                </div>
+                            </div>
+                           <h3 class="text-xl font-bold text-white mb-3 flex-grow">Watch cycling tips & fun rides</h3>
+                           <a href="https://www.youtube.com/channel/UCNzH9y0NzNUFt-vUdiJ90IQ" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-red-600 text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Subscribe</a>
+                        </div>
 
-            <!-- Section 4: Call-to-Action -->
+                        <!-- Facebook Card -->
+                        <div class="icon-glow-group flex-shrink-0 w-80 bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col text-center items-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-facebook-blue/20">
+                           <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo" class="w-12 h-12 transition-all duration-300 icon-glow-facebook">
+                           </div>
+                           <h3 class="text-xl font-bold text-white mb-3 flex-grow pt-24">Connect with us on Facebook for updates and events</h3>
+                           <a href="https://www.facebook.com/profile.php?id=61580120514358" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-facebook-blue text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Follow Page</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Section 5: Call-to-Action -->
             <section class="py-20 md:py-28">
                 <div class="max-w-screen-md mx-auto px-6 text-center">
                     <div class="rounded-2xl p-8 md:p-12">
@@ -421,3 +526,5 @@
     </script>
 </body>
 </html>
+
+
