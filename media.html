@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="View the media gallery for Deccan Cycle Mart. See photos of our latest cycles, custom builds, workshop, and happy customers.">
-    <meta name="keywords" content="cycle gallery, bike photos, custom bicycles, deccan cycle mart media">
+    <meta name="description" content="Discover stories, tips, and community highlights from Deccan Cycle Mart. Read our blog, see what families are saying, and get inspired.">
+    <meta name="keywords" content="cycle blog, cycling tips, customer testimonials, bicycle maintenance, Deccan Cycle Mart community">
     <meta name="author" content="Deccan Cycle Mart">
-    <title>Media Gallery - Deccan Cycle Mart</title>
+    <title>Media & Stories - Deccan Cycle Mart</title>
     <link rel="icon" type="image/png" href="DECCAN.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,6 +38,36 @@
         body {
             background-color: #020c1a; /* Fallback color */
             background-image: linear-gradient(170deg, #020c1a 5%, #0a1a2f 30%, #064771 60%, #0a1a2f 85%, #020c1a 100%);
+        }
+        
+        /* --- Animation Keyframes --- */
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scroll-left {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        @keyframes scroll-right {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        /* --- Animation Utility Classes --- */
+        .animate-fade-up {
+            animation: fade-up 0.8s ease-out forwards;
+        }
+        .scroller-inner {
+            display: flex;
+            flex-wrap: nowrap;
+            width: max-content;
+        }
+        .animate-scroll-left {
+            animation: scroll-left 40s linear infinite;
+        }
+        .animate-scroll-right {
+            animation: scroll-right 40s linear infinite;
         }
     </style>
 </head>
@@ -98,30 +128,239 @@
 
         <!-- Main Content -->
         <main class="flex-grow pt-20">
-            <!-- Media Hero Section -->
+            <!-- Section 1: Hero (Media Page Intro) -->
             <section class="py-20 md:py-32 text-center">
                 <div class="max-w-screen-xl mx-auto px-6">
-                    <h1 class="text-5xl lg:text-7xl font-black leading-tight mb-4 text-white">Our Gallery</h1>
-                    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-                        A glimpse into our world of cycling. Explore our collection of premium bikes, custom projects, and moments from our community.
-                    </p>
-                </div>
-            </section>
-
-            <!-- Photo Gallery Section -->
-            <section class="py-16 md:py-24">
-                <div class="max-w-screen-xl mx-auto px-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Replace with your actual images -->
-                        <img src="https://placehold.co/600x400/287cb2/ffffff?text=Cycle+1" alt="A premium mountain bike" class="rounded-xl shadow-lg w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/064771/ffffff?text=Workshop" alt="Our cycle workshop" class="rounded-xl shadow-lg w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/0a1a2f/ffffff?text=Custom+Build" alt="A custom built road bike" class="rounded-xl shadow-lg w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/041020/ffffff?text=Happy+Customer" alt="A happy customer with their new bike" class="rounded-xl shadow-lg w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/287cb2/ffffff?text=Kids+Bike" alt="A colorful kids bike" class="rounded-xl shadow-lg w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/064771/ffffff?text=Accessories" alt="A display of cycle accessories" class="rounded-xl shadow-lg w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                    <div class="animate-fade-up">
+                        <h1 class="text-5xl lg:text-7xl font-black leading-tight mb-4 text-white">Discover Our Stories & Community</h1>
+                        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                            Tips, ideas, and real stories that inspire families and cycling lovers in Bollaram.
+                        </p>
                     </div>
                 </div>
             </section>
+
+            <!-- Section 2: Blog Section -->
+            <section class="py-16 md:py-24">
+                <div class="max-w-screen-xl mx-auto px-6">
+                    <div class="text-center mb-12 animate-fade-up">
+                        <h2 class="text-4xl lg:text-5xl font-bold text-white">Our Cycling Blogs & Tips</h2>
+                        <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Learn how to choose, maintain, and enjoy bicycles for every age.</p>
+                    </div>
+                    <!-- Blog Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Blog Card 1 -->
+                        <div class="bg-black/20 backdrop-blur-lg border border-white/10 rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                            <img src="https://placehold.co/600x400/0a1a2f/fded0d?text=Kid's+Bike" alt="Illustration of a child's bicycle" class="rounded-lg mb-6 w-full h-48 object-cover">
+                            <h3 class="text-xl font-bold mb-3 text-white flex-grow">How to Choose the Right Bicycle for Your Kid in 2025</h3>
+                            <p class="text-gray-400 mb-6">Finding the perfect first bike can be tricky. Our guide breaks down sizes, safety features, and what to look for.</p>
+                            <a href="#" class="mt-auto inline-block bg-accent-yellow text-deep-blue font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Read More</a>
+                        </div>
+                        <!-- Blog Card 2 -->
+                        <div class="bg-black/20 backdrop-blur-lg border border-white/10 rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                            <img src="https://placehold.co/600x400/064771/ffffff?text=Maintenance" alt="Illustration of cycle maintenance tools" class="rounded-lg mb-6 w-full h-48 object-cover">
+                            <h3 class="text-xl font-bold mb-3 text-white flex-grow">5 Easy Tips to Maintain Your Cycle at Home</h3>
+                            <p class="text-gray-400 mb-6">Keep your bike in top shape with these simple, DIY maintenance tips that anyone can do. No special tools needed!</p>
+                            <a href="#" class="mt-auto inline-block bg-accent-yellow text-deep-blue font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Read More</a>
+                        </div>
+                        <!-- Blog Card 3 -->
+                        <div class="bg-black/20 backdrop-blur-lg border border-white/10 rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
+                            <img src="https://placehold.co/600x400/287cb2/ffffff?text=Confidence" alt="Illustration of a confident child cycling" class="rounded-lg mb-6 w-full h-48 object-cover">
+                            <h3 class="text-xl font-bold mb-3 text-white flex-grow">Why Cycling Builds Confidence in Kids</h3>
+                            <p class="text-gray-400 mb-6">Discover the psychological benefits of cycling and how it helps children develop independence and resilience.</p>
+                            <a href="#" class="mt-auto inline-block bg-accent-yellow text-deep-blue font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Testimonials -->
+            <section class="py-16 md:py-24 overflow-hidden">
+                <div class="max-w-screen-xl mx-auto px-6">
+                    <div class="text-center mb-16 animate-fade-up">
+                        <h2 class="text-4xl lg:text-5xl font-bold text-white">What Families Say About Us</h2>
+                        <p class="text-gray-300 mt-4">Trusted by 1500+ families in Bollaram and beyond.</p>
+                    </div>
+                </div>
+                
+                <!-- Scrolling Testimonials Wrapper -->
+                <div class="space-y-8">
+                    <!-- Row 1: Scrolls Right to Left -->
+                    <div class="w-full overflow-hidden">
+                        <div class="scroller-inner animate-scroll-left">
+                            <!-- Duplicate content for seamless loop -->
+                            <div class="flex space-x-8 px-4">
+                                <!-- Card 1 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/287cb2/ffffff?text=TM" alt="Taslim Mansori" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">Taslim Mansori</h4>
+                                            <p class="text-gray-400">Verified Customer</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"I had an excellent experience at Deccan Cycle Mart. The service was quick and hassle-free. I highly recommend them for any vehicle repairs or services."</p>
+                                </div>
+                                <!-- Card 2 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/064771/ffffff?text=SK" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">Shaik Khaleel</h4>
+                                            <p class="text-gray-400">Happy Parent</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"Good service and response. Wide variety of kids' cycles available."</p>
+                                </div>
+                                <!-- Card 3 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/0a1a2f/ffffff?text=AS" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">A S</h4>
+                                            <p class="text-gray-400">Cycling Enthusiast</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"A good place for all types of cycles and accessories. The owner is very friendly and explains everything in detail."</p>
+                                </div>
+                            </div>
+                           <div class="flex space-x-8 px-4">
+                                <!-- Card 1 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/287cb2/ffffff?text=TM" alt="Taslim Mansori" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">Taslim Mansori</h4>
+                                            <p class="text-gray-400">Verified Customer</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"I had an excellent experience at Deccan Cycle Mart. The service was quick and hassle-free. I highly recommend them for any vehicle repairs or services."</p>
+                                </div>
+                                <!-- Card 2 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/064771/ffffff?text=SK" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">Shaik Khaleel</h4>
+                                            <p class="text-gray-400">Happy Parent</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"Good service and response. Wide variety of kids' cycles available."</p>
+                                </div>
+                                <!-- Card 3 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/0a1a2f/ffffff?text=AS" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">A S</h4>
+                                            <p class="text-gray-400">Cycling Enthusiast</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"A good place for all types of cycles and accessories. The owner is very friendly and explains everything in detail."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Scrolls Left to Right -->
+                    <div class="w-full overflow-hidden">
+                        <div class="scroller-inner animate-scroll-right">
+                            <!-- Duplicate content for seamless loop -->
+                            <div class="flex space-x-8 px-4">
+                                <!-- Card 4 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/041020/ffffff?text=S" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">Srinivas</h4>
+                                            <p class="text-gray-400">First-time Buyer</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"Good cycle mart in this area. All types of cycles are available for kids and adults."</p>
+                                </div>
+                                <!-- Card 5 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/287cb2/ffffff?text=V" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">Venkat</h4>
+                                            <p class="text-gray-400">Regular Customer</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"Excellent service and a fantastic collection of cycles. The staff is very knowledgeable."</p>
+                                </div>
+                                <!-- Card 6 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/064771/ffffff?text=P" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">Praveen</h4>
+                                            <p class="text-gray-400">Secunderabad</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"Best place to buy cycles in the Bollaram area. Very satisfied with my purchase."</p>
+                                </div>
+                            </div>
+                            <div class="flex space-x-8 px-4">
+                               <!-- Card 4 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/041020/ffffff?text=S" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">Srinivas</h4>
+                                            <p class="text-gray-400">First-time Buyer</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"Good cycle mart in this area. All types of cycles are available for kids and adults."</p>
+                                </div>
+                                <!-- Card 5 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/287cb2/ffffff?text=V" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">Venkat</h4>
+                                            <p class="text-gray-400">Regular Customer</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"Excellent service and a fantastic collection of cycles. The staff is very knowledgeable."</p>
+                                </div>
+                                <!-- Card 6 -->
+                                <div class="w-[400px] flex-shrink-0 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+                                    <div class="flex items-start gap-5">
+                                        <img src="https://placehold.co/64x64/064771/ffffff?text=P" alt="Customer" class="w-16 h-16 rounded-full border-2 border-accent-yellow">
+                                        <div>
+                                            <h4 class="text-xl font-bold text-white">Praveen</h4>
+                                            <p class="text-gray-400">Secunderabad</p>
+                                        </div>
+                                    </div>
+                                    <p class="mt-5 text-gray-300 italic">"Best place to buy cycles in the Bollaram area. Very satisfied with my purchase."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- See All Reviews Button -->
+                <div class="text-center mt-16">
+                    <a href="https://www.google.com/maps/place/DECCAN+CYCLE+MART+(+sales+%26+service)/@17.5324826,78.5132439,17z/data=!4m8!3m7!1s0x3bcb85f0d31dcc6b:0x40e03cb1fbed7b03!8m2!3d17.5324826!4d78.5132439!9m1!1b1!16s%2Fg%2F11k435lv9t?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent-yellow text-deep-blue font-bold text-lg px-8 py-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                        See All Reviews on Google
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section 4: Call-to-Action -->
+            <section class="py-20 md:py-28">
+                <div class="max-w-screen-md mx-auto px-6 text-center">
+                    <div class="rounded-2xl p-8 md:p-12">
+                        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Ride with Confidence. Choose Deccan Cycle Mart.</h2>
+                        <p class="text-gray-300 mb-8 max-w-xl mx-auto">From first rides to expert repairs, we’re here for every step of your cycling journey.</p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <a href="services.html" class="inline-block w-full sm:w-auto bg-primary-blue text-white font-bold px-8 py-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">Explore Services</a>
+                            <a href="contact.html" class="inline-block w-full sm:w-auto bg-accent-yellow text-deep-blue font-bold px-8 py-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </main>
 
         <!-- Footer -->
