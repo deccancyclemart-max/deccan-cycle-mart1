@@ -11,24 +11,60 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data for SEO (Review Stars) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BikeStore",
+      "name": "Deccan Cycle Mart",
+      "image": "https://placehold.co/100x40/064771/ffffff?text=Logo",
+      "url": "https://yourwebsite.com/media.html",
+      "telephone": "+918332993068",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Opp Ushodaya, New Bollaram",
+        "addressLocality": "Secunderabad",
+        "postalCode": "500010",
+        "addressCountry": "IN"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "185",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         'primary-blue': '#287cb2',
-                        'deep-blue': '#064771',
-                        'accent-yellow': '#fded0d',
-                        'dark-bg': '#0a1a2f',
-                        'very-dark-bg': '#020c1a',
-                        'brands-bg': '#041020',
+                        'deep-blue': '#064771', // Title Color
+                        'accent-yellow': '#fded0d', // Button & Glow Color
+                        'light-bg': '#f9fafb', // Lighter than f8.9fa
+                        'text-dark': '#1e293b',
+                        'text-light': '#64748b',
+                        'text-neutral-grey': '#6c757d', // Description Color
+                        'border-light-grey': '#e5e7eb', // Input/Card border
                         'whatsapp-green': '#25D366',
                         'whatsapp-green-hover': '#1ebc59',
+                        'footer-bg': '#f0f4f8',
                         'facebook-blue': '#1877F2',
                     },
-                    fontFamily: { 
-                        sans: ['Inter', 'sans-serif'] 
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif']
+                    },
+                    borderRadius: {
+                        '4xl': '1.5rem',
+                        '2xl': '1rem',
+                        'xl': '0.75rem',
                     }
                 }
             }
@@ -37,492 +73,532 @@
     <style>
         html { scroll-behavior: smooth; }
         body {
-            background-color: #020c1a; /* Fallback color */
-            background-image: linear-gradient(170deg, #020c1a 5%, #0a1a2f 30%, #064771 60%, #0a1a2f 85%, #020c1a 100%);
-        }
-        
-        /* --- Animation Keyframes --- */
-        @keyframes fade-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes scroll-left {
-            from { transform: translateX(0); }
-            to { transform: translateX(-100%); }
-        }
-        @keyframes scroll-right {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
+            background-color: #FFFFFF;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* --- Animation Utility Classes --- */
-        .animate-fade-up {
-            animation: fade-up 0.8s ease-out forwards;
+        main {
+            position: relative;
+            z-index: 1;
         }
-        .scroller-inner {
-            display: flex;
-            flex-wrap: nowrap;
-            width: max-content;
+
+        .content-card {
+            background: rgba(249, 250, 251, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(230, 232, 236, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08), 0 0 30px rgba(40, 124, 178, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .animate-scroll-left {
-            animation: scroll-left 40s linear infinite;
-        }
-        .animate-scroll-right {
-            animation: scroll-right 40s linear infinite;
-        }
-        
-        /* --- Glow Hover Effects for Social Icons --- */
-        .icon-glow-group:hover .icon-glow-instagram {
-            filter: drop-shadow(0 0 8px #E4405F);
-        }
-        .icon-glow-group:hover .icon-glow-whatsapp {
-            filter: drop-shadow(0 0 8px #25D366);
-        }
-        .icon-glow-group:hover .icon-glow-youtube {
-            filter: drop-shadow(0 0 8px #FF0000);
-        }
-        .icon-glow-group:hover .icon-glow-facebook {
-            filter: drop-shadow(0 0 8px #1877F2);
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.1), 0 0 50px rgba(40, 124, 178, 0.2);
         }
         
-        /* --- Hide Scrollbar --- */
+        .premium-button {
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            color: #064771;
+            background-color: #fded0d;
+        }
+        .premium-button:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px 5px rgba(255, 215, 0, 0.7);
+        }
+        .premium-button-blue {
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            color: #FFFFFF;
+            background-color: #064771;
+        }
+        .premium-button-blue:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px 5px rgba(40, 124, 178, 0.6);
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Testimonial and Scroller Styles --- */
+        @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+        @keyframes scroll-right { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+        
+        .scroller-inner { display: flex; flex-wrap: nowrap; width: max-content; }
+        .animate-scroll-left { animation: scroll-left 60s linear infinite; }
+        .animate-scroll-right { animation: scroll-right 60s linear infinite; }
+        
+        .scroller:hover .scroller-inner {
+            animation-play-state: paused;
+        }
+
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* --- Custom Shape for Testimonial Card --- */
+
+        .testimonial-card {
+            background: #FFFFFF;
+            border: 1px solid #e5e7eb;
+        }
         .testimonial-card::before {
             content: '';
             position: absolute;
-            top: -15px;
-            left: 50%;
+            top: -15px; left: 50%;
             transform: translateX(-50%);
-            width: 0;
-            height: 0;
+            width: 0; height: 0;
             border-left: 15px solid transparent;
             border-right: 15px solid transparent;
-            border-bottom: 15px solid rgba(255, 255, 255, 0.9); /* Matches card background */
+            border-bottom: 15px solid #FFFFFF;
             transition: border-color 0.3s ease;
         }
-
         .testimonial-card:hover::before {
-             border-bottom-color: rgba(253, 237, 13, 0.5); /* Matches hover border color */
+            border-bottom-color: #f9fafb;
         }
+
+        /* --- Social Icon Glows (Preserved) --- */
+        .icon-glow-group:hover .icon-glow-instagram { filter: drop-shadow(0 0 8px #E4405F); }
+        .icon-glow-group:hover .icon-glow-whatsapp { filter: drop-shadow(0 0 8px #25D366); }
+        .icon-glow-group:hover .icon-glow-youtube { filter: drop-shadow(0 0 8px #FF0000); }
+        .icon-glow-group:hover .icon-glow-facebook { filter: drop-shadow(0 0 8px #1877F2); }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+        }
+        
+        /* Animation for scroll hint on mobile */
+        @keyframes gentle-scroll {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-15px); }
+        }
+        .mobile-scroll-animation {
+             animation: gentle-scroll 2s ease-in-out 1.5s 1;
+        }
+        @media (min-width: 640px) {
+            .mobile-scroll-animation {
+                animation: none;
+            }
+        }
+
+        .floating-whatsapp-button {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 50;
+            width: 64px;
+            height: 64px;
+            background-color: #25D366;
+            color: #ffffff;
+            border-radius: 9999px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+        .floating-whatsapp-button:hover {
+            background-color: #1ebc59;
+            transform: scale(1.10);
+        }
+        .whatsapp-icon {
+            width: 36px;
+            height: 36px;
+        }
+
     </style>
 </head>
-<body class="text-white font-sans antialiased">
+<body class="text-text-dark font-sans antialiased">
     <div id="root" class="flex flex-col min-h-screen">
-        <!-- Header -->
-        <header class="fixed top-0 left-0 right-0 z-40 bg-black/20 backdrop-blur-lg border-b border-white/10">
+        
+        <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 border-b border-border-light-grey">
             <div class="max-w-screen-xl mx-auto px-6">
                 <div class="flex items-center justify-between h-20">
-                    <!-- Left: Logo -->
-                    <a href="index.html" class="flex items-center gap-3">
-                        <img src="DECCAN.png" alt="Deccan Cycle Mart Logo" class="h-12 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x50/0a1a2f/ffffff?text=Logo';">
-                        <span class="text-xl font-bold text-white hidden sm:block">Deccan Cycle Mart</span>
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img src="blue deccan logo.png" alt="Deccan Cycle Mart Logo" class="h-10 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x40/064771/ffffff?text=Logo';">
+                        <span class="text-xl font-bold text-deep-blue">Deccan Cycle Mart</span>
                     </a>
-                    
-                    <!-- Center: Navigation -->
-                    <nav class="hidden md:flex items-center space-x-10">
-                        <a href="index.html" class="relative group text-white font-semibold px-3 py-2">
-                            Home
-                            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#fded0d] group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                        <a href="about.html" class="relative group text-white font-semibold px-3 py-2">
-                            About
-                            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#fded0d] group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                        <a href="services.html" class="relative group text-white font-semibold px-3 py-2">
-                            Services
-                            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#fded0d] group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                        <a href="media.html" class="relative text-white font-semibold px-3 py-2">
-                            Media
-                            <span class="absolute left-0 bottom-0 h-[2px] w-full bg-[#fded0d]"></span>
-                        </a>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">Home</a>
+                        <a href="about.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">About Us</a>
+                        <a href="services.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">Service</a>
+                        <a href="media.html" class="font-semibold text-primary-blue border-b-2 border-primary-blue pb-1">Media</a>
+                        <a href="contact.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">Contact</a>
                     </nav>
-
-                    <!-- Right: Contact Button -->
-                    <div class="hidden md:flex">
-                         <a href="contact.html" class="inline-block bg-accent-yellow text-deep-blue font-bold text-base px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Contact Us</a>
-                    </div>
-
-                    <!-- Mobile Menu Button -->
-                    <div class="md:hidden">
-                        <button id="mobile-menu-button" class="text-white focus:outline-none">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                        </button>
-                    </div>
+                    <button type="button" class="open-service-modal hidden md:inline-block premium-button py-3 px-6 rounded-xl text-base">
+                        Book Service
+                    </button>
                 </div>
-            </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 bg-dark-bg/95">
-                <a href="index.html" class="block py-2 text-lg transition-colors hover:text-accent-yellow">Home</a>
-                <a href="about.html" class="block py-2 text-lg transition-colors hover:text-accent-yellow">About</a>
-                <a href="services.html" class="block py-2 text-lg transition-colors hover:text-accent-yellow">Services</a>
-                <a href="media.html" class="block py-2 text-lg text-accent-yellow font-bold">Media</a>
-                <a href="contact.html" class="block mt-2 py-2 text-lg bg-accent-yellow text-deep-blue text-center rounded-md font-semibold">Contact Us</a>
             </div>
         </header>
 
-        <!-- Main Content -->
-        <main class="flex-grow pt-20">
-            <!-- Section 1: Hero (Media Page Intro) -->
-            <section class="py-20 md:py-32 text-center">
-                <div class="max-w-screen-xl mx-auto px-6">
-                    <div class="animate-fade-up">
-                        <h1 class="text-5xl lg:text-7xl font-black leading-tight mb-4 text-white">Discover Our Stories & Community</h1>
-                        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-                            Tips, ideas, and real stories that inspire families and cycling lovers in Bollaram.
-                        </p>
-                    </div>
+        <main class="flex-grow font-montserrat">
+            <!-- Section 1: Hero -->
+            <section class="text-center py-20 md:py-28">
+                <div class="max-w-screen-md mx-auto px-6">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-deep-blue">Discover Our Stories & Community</h1>
+                    <p class="mt-6 text-lg md:text-xl text-text-neutral-grey leading-relaxed">
+                        Tips, ideas, and real stories that inspire families and cycling lovers in Bollaram.
+                    </p>
                 </div>
             </section>
 
             <!-- Section 2: Blog Section -->
-            <section class="py-16 md:py-24">
+            <section id="blog-section" class="py-16 md:py-24 fade-in-section">
                 <div class="max-w-screen-xl mx-auto px-6">
-                    <div class="text-center mb-12 animate-fade-up">
-                        <h2 class="text-4xl lg:text-5xl font-bold text-white">Our Cycling Blogs & Tips</h2>
-                        <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Learn how to choose, maintain, and enjoy bicycles for every age.</p>
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-5xl font-bold text-deep-blue">Our Cycling Blogs & Tips</h2>
+                        <p class="text-text-neutral-grey mt-4 max-w-2xl mx-auto text-lg">Learn how to choose, maintain, and enjoy bicycles for every age.</p>
                     </div>
-                    <!-- Blog Cards Container -->
-                    <div class="flex overflow-x-auto space-x-6 p-1 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:p-0 md:space-x-0 no-scrollbar md:overflow-visible">
-                        <!-- Blog Card 1 -->
-                        <div class="flex-shrink-0 w-80 md:w-auto bg-black/20 backdrop-blur-lg border border-white/10 rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                            <img src="https://placehold.co/600x400/0a1a2f/fded0d?text=Kid's+Bike" alt="Illustration of a child's bicycle" class="rounded-lg mb-6 w-full h-48 object-cover">
-                            <h3 class="text-xl font-bold mb-3 text-white flex-grow">How to Choose the Right Bicycle for Your Kid in 2025</h3>
-                            <p class="text-gray-400 mb-6">Finding the perfect first bike can be tricky. Our guide breaks down sizes, safety features, and what to look for.</p>
-                            <a href="#" class="mt-auto inline-block bg-accent-yellow text-deep-blue font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Read More</a>
-                        </div>
-                        <!-- Blog Card 2 -->
-                        <div class="flex-shrink-0 w-80 md:w-auto bg-black/20 backdrop-blur-lg border border-white/10 rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                            <img src="https://placehold.co/600x400/064771/ffffff?text=Maintenance" alt="Illustration of cycle maintenance tools" class="rounded-lg mb-6 w-full h-48 object-cover">
-                            <h3 class="text-xl font-bold mb-3 text-white flex-grow">5 Easy Tips to Maintain Your Cycle at Home</h3>
-                            <p class="text-gray-400 mb-6">Keep your bike in top shape with these simple, DIY maintenance tips that anyone can do. No special tools needed!</p>
-                            <a href="#" class="mt-auto inline-block bg-accent-yellow text-deep-blue font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Read More</a>
-                        </div>
-                        <!-- Blog Card 3 -->
-                        <div class="flex-shrink-0 w-80 md:w-auto bg-black/20 backdrop-blur-lg border border-white/10 rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                            <img src="https://placehold.co/600x400/287cb2/ffffff?text=Confidence" alt="Illustration of a confident child cycling" class="rounded-lg mb-6 w-full h-48 object-cover">
-                            <h3 class="text-xl font-bold mb-3 text-white flex-grow">Why Cycling Builds Confidence in Kids</h3>
-                            <p class="text-gray-400 mb-6">Discover the psychological benefits of cycling and how it helps children develop independence and resilience.</p>
-                            <a href="#" class="mt-auto inline-block bg-accent-yellow text-deep-blue font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Read More</a>
+                    <div class="relative">
+                        <!-- Scroll Buttons for Mobile -->
+                        <button id="blog-scroll-left" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-2 z-10 md:hidden shadow-md focus:outline-none focus:ring-2 focus:ring-primary-blue">
+                            <svg class="w-6 h-6 text-deep-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button id="blog-scroll-right" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-2 z-10 md:hidden shadow-md focus:outline-none focus:ring-2 focus:ring-primary-blue">
+                            <svg class="w-6 h-6 text-deep-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+
+                        <div id="blog-posts-container" class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 space-x-4 md:space-x-0 px-1">
+                            <!-- Blog posts will be dynamically inserted here -->
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Section 3: Testimonials -->
-            <section class="py-16 md:py-24 overflow-hidden">
+            <section class="py-16 md:py-24 overflow-hidden fade-in-section">
                 <div class="max-w-screen-xl mx-auto px-6">
-                    <div class="text-center mb-24 animate-fade-up">
-                        <h2 class="text-4xl lg:text-5xl font-bold text-white">What Families Say About Us</h2>
-                        <p class="text-gray-300 mt-4">Trusted by 1500+ families in Bollaram and beyond.</p>
+                    <div class="text-center mb-24">
+                        <h2 class="text-3xl md:text-5xl font-bold text-deep-blue">What Families Say About Us</h2>
+                        <p class="text-text-neutral-grey mt-4 text-lg">See why families across Bollaram trust us with their rides.</p>
                     </div>
                 </div>
-                
-                <!-- Scrolling Testimonials Wrapper -->
                 <div class="space-y-16">
                     <!-- Row 1: Scrolls Right to Left -->
-                    <div class="w-full overflow-hidden">
+                    <div class="w-full overflow-hidden scroller">
                         <div class="scroller-inner animate-scroll-left">
-                            <div class="flex space-x-4 md:space-x-8 px-2 md:px-4">
-                                <!-- Card 1 -->
-                                <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/287cb2/ffffff?text=TM" alt="Taslim Mansori" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Taslim Mansori</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"I had an excellent experience... The service was quick and hassle-free. I highly recommend them."</p>
-                                    </div>
-                                </div>
-                                <!-- Card 2 -->
-                                <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/064771/ffffff?text=SK" alt="Shaik Khaleel" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Shaik Khaleel</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                           <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"Good service and response. Wide variety of kids' cycles available."</p>
-                                    </div>
-                                </div>
-                                <!-- Card 3 -->
-                                <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/0a1a2f/ffffff?text=AS" alt="A S" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">A S</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"A good place for all types of cycles and accessories. The owner is very friendly."</p>
-                                    </div>
-                                </div>
-                            </div>
-                           <!-- Duplicated row -->
-                           <div class="flex space-x-4 md:space-x-8 px-2 md:px-4">
-                               <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/287cb2/ffffff?text=TM" alt="Taslim Mansori" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Taslim Mansori</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"I had an excellent experience... The service was quick and hassle-free. I highly recommend them."</p>
-                                    </div>
-                                </div>
-                                <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/064771/ffffff?text=SK" alt="Shaik Khaleel" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Shaik Khaleel</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"Good service and response. Wide variety of kids' cycles available."</p>
-                                    </div>
-                                </div>
-                                <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/0a1a2f/ffffff?text=AS" alt="A S" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">A S</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"A good place for all types of cycles and accessories. The owner is very friendly."</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Row 2: Scrolls Left to Right -->
-                    <div class="w-full overflow-hidden">
-                        <div class="scroller-inner animate-scroll-right">
-                           <div class="flex space-x-4 md:space-x-8 px-2 md:px-4">
-                                <!-- Card 4 -->
-                                <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/041020/ffffff?text=S" alt="Srinivas" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Srinivas</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"Good cycle mart in this area. All types of cycles are available for kids and adults."</p>
-                                    </div>
-                                </div>
-                                <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/287cb2/ffffff?text=V" alt="Venkat" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Venkat</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"Excellent service and a fantastic collection of cycles. The staff is very knowledgeable."</p>
-                                    </div>
-                                </div>
-                                <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/064771/ffffff?text=P" alt="Praveen" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Praveen</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"Best place to buy cycles in the Bollaram area. Very satisfied with my purchase."</p>
-                                    </div>
-                                </div>
-                            </div>
-                           <!-- Duplicated row -->
-                           <div class="flex space-x-4 md:space-x-8 px-2 md:px-4">
-                               <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/041020/ffffff?text=S" alt="Srinivas" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Srinivas</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"Good cycle mart in this area. All types of cycles are available for kids and adults."</p>
-                                    </div>
-                                </div>
-                                <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/287cb2/ffffff?text=V" alt="Venkat" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Venkat</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"Excellent service and a fantastic collection of cycles. The staff is very knowledgeable."</p>
-                                    </div>
-                                </div>
-                                <div class="relative w-[320px] sm:w-[360px] md:w-[400px] flex-shrink-0 mt-10">
-                                    <img src="https://placehold.co/80x80/064771/ffffff?text=P" alt="Praveen" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-dark-bg z-10">
-                                    <div class="testimonial-card relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 pt-12 text-center border border-white/20 shadow-xl transition-all duration-300 hover:border-accent-yellow/50 hover:shadow-2xl hover:shadow-accent-yellow/10 transform hover:-translate-y-2">
-                                        <svg class="absolute top-6 left-6 w-12 h-12 text-deep-blue/10" viewBox="0 0 32 32" fill="currentColor"><path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 15 C 4 19.414 7.586 23 12 23 L 12 19.140625 C 9.433594 18.421875 8 16.425781 8 15 L 8 10 L 12 10 L 12 6 C 12 4.895 11.105 4 10 4 L 6 4 z M 22 4 C 20.895 4 20 4.895 20 6 L 20 15 C 20 19.414 23.586 23 28 23 L 28 19.140625 C 25.433594 18.421875 24 16.425781 24 15 L 24 10 L 28 10 L 28 6 C 28 4.895 27.105 4 26 4 L 22 4 z"></path></svg>
-                                        <h4 class="text-xl font-bold text-deep-blue mb-2">Praveen</h4>
-                                        <div class="flex items-center justify-center mb-4">
-                                            <svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                        </div>
-                                        <p class="text-deep-blue/80 italic text-lg">"Best place to buy cycles in the Bollaram area. Very satisfied with my purchase."</p>
-                                    </div>
-                                </div>
-                            </div>
+                           <div class="flex space-x-8 px-4">
+                                <!-- Cards repeated for seamless animation -->
+                                <div class="relative w-[360px] md:w-[400px] flex-shrink-0 mt-10"><img src="https://placehold.co/80x80/287cb2/ffffff?text=TM" alt="Taslim Mansori" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-white z-10"><div class="testimonial-card relative rounded-2xl p-8 pt-12 text-center shadow-xl"><h4 class="text-xl font-bold text-deep-blue mb-2">Taslim Mansori</h4><div class="flex justify-center mb-4"><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></div><p class="text-text-neutral-grey italic text-lg">"I had an excellent experience... The service was quick and hassle-free. I highly recommend them."</p></div></div>
+                                <div class="relative w-[360px] md:w-[400px] flex-shrink-0 mt-10"><img src="https://placehold.co/80x80/064771/ffffff?text=SK" alt="Shaik Khaleel" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-white z-10"><div class="testimonial-card relative rounded-2xl p-8 pt-12 text-center shadow-xl"><h4 class="text-xl font-bold text-deep-blue mb-2">Shaik Khaleel</h4><div class="flex justify-center mb-4"><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></div><p class="text-text-neutral-grey italic text-lg">"Good service and response. Wide variety of kids' cycles available."</p></div></div>
+                                <div class="relative w-[360px] md:w-[400px] flex-shrink-0 mt-10"><img src="https://placehold.co/80x80/0a1a2f/ffffff?text=AS" alt="A S" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-white z-10"><div class="testimonial-card relative rounded-2xl p-8 pt-12 text-center shadow-xl"><h4 class="text-xl font-bold text-deep-blue mb-2">A S</h4><div class="flex justify-center mb-4"><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></div><p class="text-text-neutral-grey italic text-lg">"A good place for all types of cycles and accessories. The owner is very friendly."</p></div></div>
+                                <div class="relative w-[360px] md:w-[400px] flex-shrink-0 mt-10"><img src="https://placehold.co/80x80/287cb2/ffffff?text=TM" alt="Taslim Mansori" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-white z-10"><div class="testimonial-card relative rounded-2xl p-8 pt-12 text-center shadow-xl"><h4 class="text-xl font-bold text-deep-blue mb-2">Taslim Mansori</h4><div class="flex justify-center mb-4"><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></div><p class="text-text-neutral-grey italic text-lg">"I had an excellent experience... The service was quick and hassle-free. I highly recommend them."</p></div></div>
+                                <div class="relative w-[360px] md:w-[400px] flex-shrink-0 mt-10"><img src="https://placehold.co/80x80/064771/ffffff?text=SK" alt="Shaik Khaleel" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-white z-10"><div class="testimonial-card relative rounded-2xl p-8 pt-12 text-center shadow-xl"><h4 class="text-xl font-bold text-deep-blue mb-2">Shaik Khaleel</h4><div class="flex justify-center mb-4"><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></div><p class="text-text-neutral-grey italic text-lg">"Good service and response. Wide variety of kids' cycles available."</p></div></div>
+                                <div class="relative w-[360px] md:w-[400px] flex-shrink-0 mt-10"><img src="https://placehold.co/80x80/0a1a2f/ffffff?text=AS" alt="A S" class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-primary-blue bg-white z-10"><div class="testimonial-card relative rounded-2xl p-8 pt-12 text-center shadow-xl"><h4 class="text-xl font-bold text-deep-blue mb-2">A S</h4><div class="flex justify-center mb-4"><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg><svg class="w-5 h-5 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></div><p class="text-text-neutral-grey italic text-lg">"A good place for all types of cycles and accessories. The owner is very friendly."</p></div></div>
+                           </div>
                         </div>
                     </div>
                 </div>
-                <!-- See All Reviews Button -->
                 <div class="text-center mt-16">
-                    <a href="https://www.google.com/maps/place/DECCAN+CYCLE+MART+(+sales+%26+service)/@17.5324826,78.5132439,17z/data=!4m8!3m7!1s0x3bcb85f0d31dcc6b:0x40e03cb1fbed7b03!8m2!3d17.5324826!4d78.5132439!9m1!1b1!16s%2Fg%2F11k435lv9t?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent-yellow text-deep-blue font-bold text-lg px-8 py-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                    <a href="https://www.google.com/maps/place/DECCAN+CYCLE+MART+(+sales+%26+service)/@17.5324826,78.5132439,17z/data=!4m8!3m7!1s0x3bcb85f0d31dcc6b:0x40e03cb1fbed7b03!8m2!3d17.5324826!4d78.5132439!9m1!1b1!16s%2Fg%2F11k435lv9t?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="inline-block premium-button-blue text-lg px-8 py-4 rounded-lg">
                         See All Reviews on Google
                     </a>
                 </div>
             </section>
-            
+
             <!-- Section 4: Community Section -->
-            <section class="py-16 md:py-24">
+            <section class="py-16 md:py-24 fade-in-section">
                 <div class="max-w-screen-xl mx-auto">
-                    <div class="text-center mb-12 animate-fade-up px-6">
-                        <h2 class="text-4xl lg:text-5xl font-bold text-white">Join Our Cycling Community 🚴‍♂️</h2>
-                        <p class="text-gray-300 mt-4 max-w-2xl mx-auto">We share tips, offers, and cycling stories daily. Follow us and be part of the ride!</p>
+                    <div class="text-center mb-12 px-6">
+                        <h2 class="text-3xl md:text-5xl font-bold text-deep-blue">Join Our Cycling Community 🚴‍♂️</h2>
+                        <p class="text-text-neutral-grey mt-4 max-w-2xl mx-auto text-lg">We share tips, offers, and cycling stories daily. Follow us and be part of the ride!</p>
                     </div>
-                    
-                    <!-- Social Cards Container -->
-                    <div class="flex overflow-x-auto space-x-8 pb-8 px-6 no-scrollbar">
-                        
+                    <div class="flex overflow-x-auto no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-8 space-x-4 sm:space-x-0 px-6 mobile-scroll-animation">
                         <!-- Instagram Card -->
-                        <div class="icon-glow-group flex-shrink-0 w-80 bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col text-center items-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-blue/20">
-                           <div class="w-16 h-16 mb-4 flex items-center justify-center">
-                               <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" class="w-12 h-12 transition-all duration-300 icon-glow-instagram">
-                           </div>
-                           <div class="flex gap-2 mb-4">
-                               <img src="https://placehold.co/100x100/287cb2/ffffff?text=Ride" alt="cycle image 1" class="rounded-md w-1/3">
-                               <img src="https://placehold.co/100x100/064771/ffffff?text=Shop" alt="cycle image 2" class="rounded-md w-1/3">
-                               <img src="https://placehold.co/100x100/0a1a2f/ffffff?text=Joy" alt="cycle image 3" class="rounded-md w-1/3">
-                           </div>
-                           <h3 class="text-xl font-bold text-white mb-3 flex-grow">Follow us on Instagram</h3>
-                           <a href="https://www.instagram.com/deccancyclemart/" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Follow Now</a>
-                        </div>
-                        
-                        <!-- WhatsApp Card -->
-                        <div class="icon-glow-group flex-shrink-0 w-80 bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col text-center items-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-whatsapp-green/20">
-                           <div class="w-16 h-16 mb-4 flex items-center justify-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="w-12 h-12 transition-all duration-300 icon-glow-whatsapp">
-                           </div>
-                           <h3 class="text-xl font-bold text-white mb-3 flex-grow pt-24">Have a question? Chat with us instantly on WhatsApp</h3>
-                           <a href="https://wa.me/918332993068" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-whatsapp-green text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Chat Now</a>
-                        </div>
-                        
-                        <!-- YouTube Card -->
-                        <div class="icon-glow-group flex-shrink-0 w-80 bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col text-center items-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
-                           <div class="w-16 h-16 mb-4 flex items-center justify-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Logo" class="w-12 h-auto transition-all duration-300 icon-glow-youtube">
-                           </div>
-                            <div class="relative w-full rounded-md overflow-hidden mb-4">
-                                <img src="https://placehold.co/300x150/020c1a/ffffff?text=Video+Preview" alt="video preview" class="w-full">
-                                <div class="absolute inset-0 flex items-center justify-center bg-black/30">
-                                    <svg class="w-12 h-12 text-white/80" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                                </div>
+                        <div class="w-72 flex-shrink-0 sm:w-auto icon-glow-group content-card rounded-2xl p-6 flex flex-col text-center items-center">
+                            <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" class="w-12 h-12 transition-all duration-300 icon-glow-instagram">
                             </div>
-                           <h3 class="text-xl font-bold text-white mb-3 flex-grow">Watch cycling tips & fun rides</h3>
-                           <a href="https://www.youtube.com/channel/UCNzH9y0NzNUFt-vUdiJ90IQ" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-red-600 text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Subscribe</a>
+                            <h3 class="text-xl font-bold text-deep-blue mb-3 flex-grow">Follow us on Instagram</h3>
+                            <a href="https://www.instagram.com/deccancyclemart/" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Follow Now</a>
                         </div>
-
+                        <!-- WhatsApp Card -->
+                        <div class="w-72 flex-shrink-0 sm:w-auto icon-glow-group content-card rounded-2xl p-6 flex flex-col text-center items-center">
+                            <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="w-12 h-12 transition-all duration-300 icon-glow-whatsapp">
+                            </div>
+                            <h3 class="text-xl font-bold text-deep-blue mb-3 flex-grow">Chat with us instantly on WhatsApp</h3>
+                            <a href="https://wa.me/918332993068" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-whatsapp-green text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Chat Now</a>
+                        </div>
+                        <!-- YouTube Card -->
+                        <div class="w-72 flex-shrink-0 sm:w-auto icon-glow-group content-card rounded-2xl p-6 flex flex-col text-center items-center">
+                            <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Logo" class="w-12 h-auto transition-all duration-300 icon-glow-youtube">
+                            </div>
+                            <h3 class="text-xl font-bold text-deep-blue mb-3 flex-grow">Watch cycling tips & fun rides</h3>
+                            <a href="https://www.youtube.com/channel/UCNzH9y0NzNUFt-vUdiJ90IQ" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-red-600 text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Subscribe</a>
+                        </div>
                         <!-- Facebook Card -->
-                        <div class="icon-glow-group flex-shrink-0 w-80 bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col text-center items-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-facebook-blue/20">
-                           <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                        <div class="w-72 flex-shrink-0 sm:w-auto icon-glow-group content-card rounded-2xl p-6 flex flex-col text-center items-center">
+                            <div class="w-16 h-16 mb-4 flex items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo" class="w-12 h-12 transition-all duration-300 icon-glow-facebook">
-                           </div>
-                           <h3 class="text-xl font-bold text-white mb-3 flex-grow pt-24">Connect with us on Facebook for updates and events</h3>
-                           <a href="https://www.facebook.com/profile.php?id=61580120514358" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-facebook-blue text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Follow Page</a>
-                        </div>
-                        
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- Section 5: Call-to-Action -->
-            <section class="py-20 md:py-28">
-                <div class="max-w-screen-md mx-auto px-6 text-center">
-                    <div class="rounded-2xl p-8 md:p-12">
-                        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Ride with Confidence. Choose Deccan Cycle Mart.</h2>
-                        <p class="text-gray-300 mb-8 max-w-xl mx-auto">From first rides to expert repairs, we’re here for every step of your cycling journey.</p>
-                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <a href="services.html" class="inline-block w-full sm:w-auto bg-primary-blue text-white font-bold px-8 py-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">Explore Services</a>
-                            <a href="contact.html" class="inline-block w-full sm:w-auto bg-accent-yellow text-deep-blue font-bold px-8 py-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">Contact Us</a>
+                            </div>
+                            <h3 class="text-xl font-bold text-deep-blue mb-3 flex-grow">Connect for updates and events</h3>
+                            <a href="https://www.facebook.com/profile.php?id=61580120514358" target="_blank" rel="noopener noreferrer" class="mt-auto w-full inline-block bg-facebook-blue text-white font-bold text-center px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Follow Page</a>
                         </div>
                     </div>
                 </div>
             </section>
-
         </main>
-
-        <!-- Footer -->
-        <footer id="footer" class="bg-dark-bg pt-20 pb-8">
+        
+        <footer id="contact-footer" class="bg-footer-bg pt-20 pb-8 border-t border-border-light-grey">
             <div class="max-w-screen-xl mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    <!-- SEO Text Block -->
-                    <div class="lg:col-span-1">
-                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Let’s Stay Connected</h3>
-                        <p class="text-gray-400 font-light">Hi, we are always open for cooperation and suggestions. Contact us in one of the ways below.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center sm:text-left">
+                    <div class="flex flex-col items-center sm:items-start">
+                         <a href="index.html" class="flex items-center gap-2 mb-4">
+                             <img src="blue deccan logo.png" alt="Deccan Cycle Mart Logo" class="h-10 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x40/064771/ffffff?text=Logo';">
+                             <span class="text-xl font-bold text-deep-blue">Deccan Cycle Mart</span>
+                         </a>
+                        <p class="text-text-neutral-grey">Proudly serving Bollaram, Kompally, Kowkoor, Alwal, Jonnabanda and Deliveries to nearby Secunderabad on request.</p>
                     </div>
-                    
-                    <!-- Quick Links -->
-                    <div>
-                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Quick Links</h3>
+                    <div class="lg:mx-auto">
+                        <h3 class="text-lg font-semibold text-deep-blue mb-4">Quick Links</h3>
                         <ul class="space-y-3">
-                            <li><a href="index.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Home</a></li>
-                            <li><a href="services.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Services</a></li>
-                            <li><a href="media.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Media</a></li>
-                            <li><a href="contact.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Contact</a></li>
+                            <li><a href="index.html" class="text-text-neutral-grey hover:text-primary-blue">Home</a></li>
+                            <li><a href="about.html" class="text-text-neutral-grey hover:text-primary-blue">About Us</a></li>
+                            <li><a href="services.html" class="text-text-neutral-grey hover:text-primary-blue">Services</a></li>
+                            <li><a href="media.html" class="text-text-neutral-grey hover:text-primary-blue">Media</a></li>
+                            <li><a href="contact.html" class="text-text-neutral-grey hover:text-primary-blue">Contact Us</a></li>
                         </ul>
                     </div>
-
-                    <!-- Contact Us -->
-                    <div>
-                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Contact Us</h3>
-                        <ul class="space-y-4 text-gray-300 font-light">
-                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg><a href="tel:+918332993068" class="hover:text-accent-yellow transition">+91 8332993068</a></li>
-                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/></svg><a href="https://wa.me/918332993068" target="_blank" rel="noopener noreferrer" class="hover:text-accent-yellow transition">WhatsApp: +91 8332993068</a></li>
-                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><a href="mailto:deccancyclemart@gmail.com" class="hover:text-accent-yellow transition">deccancyclemart@gmail.com</a></li>
-                            <li class="flex items-start"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>Opp Ushodaya, New Bollaram, Secunderabad 500010</span></li>
+                    <div class="lg:mx-auto">
+                        <h3 class="text-lg font-semibold text-deep-blue mb-4">Contact Us</h3>
+                        <ul class="space-y-4 text-text-neutral-grey">
+                           <li class="flex items-center justify-center sm:justify-start gap-3"><svg class="w-5 h-5 text-primary-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg><a href="tel:+918332993068" class="hover:text-primary-blue transition">+91 8332993068</a></li>
+                           <li class="flex items-center justify-center sm:justify-start gap-3"><svg class="w-5 h-5 text-primary-blue flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/></svg><a href="https://wa.me/918332993068" target="_blank" class="hover:text-primary-blue transition">WhatsApp Us</a></li>
+                           <li class="flex items-start justify-center sm:justify-start gap-3"><svg class="w-5 h-5 text-primary-blue flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>Opp Ushodaya, New Bollaram, Secunderabad 500010</span></li>
                         </ul>
                     </div>
-
-                    <!-- Embedded Map -->
-                    <div>
-                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Find Us on Google Maps</h3>
-                        <iframe src="https://www.google.com/maps?q=Deccan+Cycle+Mart,+New+Bollaram,+Secunderabad+500010&output=embed" class="rounded-xl shadow-md w-full h-48" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                     <div class="lg:ml-auto">
+                         <h3 class="text-lg font-semibold text-deep-blue mb-4">Find Us Here</h3>
+                         <iframe 
+                             src="https://www.google.com/maps?q=Deccan+Cycle+Mart,+New+Bollaram,+Secunderabad+500010&output=embed"
+                             class="w-full h-48 rounded-xl border border-border-light-grey"
+                             style="border:0;" 
+                             allowfullscreen="" 
+                             loading="lazy" 
+                             referrerpolicy="no-referrer-when-downgrade">
+                         </iframe>
                     </div>
                 </div>
-                <div class="mt-16 border-t border-primary-blue/30 pt-8 text-center text-gray-400">
+                <div class="mt-16 border-t border-border-light-grey pt-8 text-center text-text-light text-sm">
                     <p>© 2025 Deccan Cycle Mart. All rights reserved.</p>
                 </div>
             </div>
         </footer>
     </div>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/918332993068?text=Hello!%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-whatsapp-green text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transform transition-transform hover:scale-110 hover:bg-whatsapp-green-hover">
-        <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/></svg>
+    <div id="service-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none">
+        <div id="service-modal-content" class="content-card relative rounded-2xl w-full max-w-lg p-8 transform transition-all duration-300 ease-in-out scale-95 opacity-0">
+            <button class="close-modal-button absolute top-4 right-4 text-gray-400 hover:text-gray-800"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-deep-blue">Book Home Service</h2>
+                <p class="text-text-neutral-grey mt-2">Enter your details and we'll arrange a pickup.</p>
+            </div>
+            <form action="https://formsubmit.co/deccancyclemart@gmail.com" method="POST" class="space-y-4">
+                <input type="text" name="name" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue" placeholder="Your Name">
+                <input type="tel" name="phone" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue" placeholder="Your Phone Number">
+                
+                <div>
+                    <textarea id="modal-address" name="address" rows="3" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue transition" placeholder="Your Full Address"></textarea>
+                    <button type="button" id="modal-getLocationBtn" class="mt-2 w-full text-deep-blue font-semibold py-2 px-4 border border-deep-blue rounded-xl transition-colors flex items-center justify-center hover:bg-deep-blue hover:text-white">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
+                        Use My Location
+                    </button>
+                    <p id="modal-location-status" class="text-sm text-center mt-2 h-5"></p>
+                </div>
+
+                <select name="service_type" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue text-gray-500">
+                    <option value="" disabled selected>Select Service Type</option>
+                    <option>Service and Repair</option>
+                    <option>Assembly</option>
+                    <option>Exchange</option>
+                    <option>Rental</option>
+                    <option>Painting</option>
+                    <option>Customization</option>
+                    <option>Electric Kit Install</option>
+                    <option>Others</option>
+                </select>
+                <input type="hidden" name="_subject" value="New Modal Service Request!"><input type="hidden" name="_captcha" value="false">
+                <button type="submit" class="w-full premium-button py-3 rounded-xl text-lg">Submit Request</button>
+                <p class="text-xs text-center text-text-light mt-4">We respect your privacy. Your data is used only to serve you better.</p>
+            </form>
+        </div>
+    </div>
+
+    <a href="https://wa.me/918332993068?text=Hello!%20I%20have%20a%20question."
+       target="_blank"
+       rel="noopener noreferrer"
+       class="floating-whatsapp-button">
+        <svg class="whatsapp-icon" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/>
+        </svg>
     </a>
-    
+
     <script>
-        // --- Mobile Menu Toggle ---
-        document.getElementById('mobile-menu-button').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Blog Post Data ---
+        const blogPosts = [
+            {
+                slug: 'kids-bike-guide-secunderabad.html',
+                imageSrc: "kids-bike-guide-secunderabad-expert-fitting-02.webp",
+                imageAlt: "A happy child confidently riding their first bicycle in a green Secunderabad park.",
+                title: "A Parent's Guide to Choosing a Kids' Bicycle",
+                description: "Ensure your child's first ride is safe and joyful. This guide covers everything from the right size to essential safety features."
+            },
+            {
+                slug: 'bicycle-buying-guide-secunderabad.html',
+                imageSrc: "family-buying-bicycle-secunderabad.webp",
+                imageAlt: "Happy family choosing a new kids bicycle at a local cycle shop in Secunderabad.",
+                title: "Secunderabad Bicycle Buying Guide (2025)",
+                description: "Your complete guide to buying a bicycle in Secunderabad. Learn about MTB, Hybrid, and Road bikes, and find the right size."
+            },
+            {
+                slug: 'cycle-pickup-drop-secunderabad.html',
+                imageSrc: "cycle-pickup-drop-secunderabad..webp",
+                imageAlt: "Deccan Cycle Mart service van offering free pickup and drop for cycle repairs.",
+                title: "Expert Cycle Repair with Free Pickup/Drop",
+                description: "Learn about our hassle-free pickup and drop service for all your cycle repair needs in the Secunderabad area."
+            }
+        ];
+
+        // --- Dynamic Blog Post Rendering ---
+        const blogContainer = document.getElementById('blog-posts-container');
+        if (blogContainer) {
+            blogPosts.forEach(post => {
+                const postHTML = `
+                    <div class="w-[calc(100%-1rem)] flex-shrink-0 snap-center md:w-auto content-card rounded-2xl p-6 flex flex-col">
+                        <img src="${post.imageSrc}" alt="${post.imageAlt}" class="rounded-lg mb-6 w-full h-48 object-cover">
+                        <h3 class="text-xl font-bold mb-3 text-deep-blue flex-grow">${post.title}</h3>
+                        <p class="text-text-neutral-grey mb-6">${post.description}</p>
+                        <a href="${post.slug}" class="mt-auto inline-block premium-button text-center px-6 py-3 rounded-lg">Read More</a>
+                    </div>
+                `;
+                blogContainer.innerHTML += postHTML;
+            });
+        }
+    
+        // --- Modal ---
+        function initializeModal(modalId, openButtonsClass) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            const openButtons = document.querySelectorAll(`.${openButtonsClass}`);
+            const content = modal.querySelector('div[id$="-content"]');
+            const closeButtons = modal.querySelectorAll('.close-modal-button');
+            const openModal = () => {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                content.classList.remove('opacity-0', 'scale-95');
+            };
+            const closeModal = () => {
+                content.classList.add('opacity-0', 'scale-95');
+                modal.classList.add('opacity-0');
+                setTimeout(() => modal.classList.add('pointer-events-none'), 300);
+            };
+            openButtons.forEach(btn => btn.addEventListener('click', openModal));
+            closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
+            modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+        }
+        initializeModal('service-modal', 'open-service-modal');
+
+        // --- Fade In Animation ---
+        const fadeInObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(target => fadeInObserver.observe(target));
+        
+        // --- Geolocation ---
+        const geoBtn = document.getElementById('modal-getLocationBtn');
+        const addressField = document.getElementById('modal-address');
+        const statusMsg = document.getElementById('modal-location-status');
+        if (geoBtn && addressField && statusMsg) {
+            geoBtn.addEventListener('click', () => {
+                if (navigator.geolocation) {
+                    geoBtn.disabled = true;
+                    geoBtn.textContent = 'Fetching Location...';
+                    statusMsg.textContent = 'Please wait...';
+                    statusMsg.className = 'text-sm text-center mt-2 h-5 text-gray-500';
+                    navigator.geolocation.getCurrentPosition(
+                        async (position) => {
+                            const { latitude, longitude } = position.coords;
+                            try {
+                                const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`);
+                                const data = await response.json();
+                                if (data && data.display_name) {
+                                    addressField.value = data.display_name;
+                                    statusMsg.textContent = 'Success!';
+                                    statusMsg.className = 'text-sm text-center mt-2 h-5 text-green-600';
+                                } else { throw new Error('No address found'); }
+                            } catch (error) {
+                                statusMsg.textContent = 'Failed to fetch address.';
+                                statusMsg.className = 'text-sm text-center mt-2 h-5 text-red-600';
+                            } finally {
+                                geoBtn.disabled = false;
+                                geoBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg> Use My Location`;
+                            }
+                        },
+                        (error) => {
+                            statusMsg.textContent = 'Permission denied.';
+                            statusMsg.className = 'text-sm text-center mt-2 h-5 text-red-600';
+                            geoBtn.disabled = false;
+                            geoBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg> Use My Location`;
+                        }
+                    );
+                } else {
+                    statusMsg.textContent = 'Geolocation not supported.';
+                    statusMsg.className = 'text-sm text-center mt-2 h-5 text-red-600';
+                }
+            });
+        }
+
+        // --- Blog Scroller Logic ---
+        const blogScrollContainer = document.getElementById('blog-posts-container');
+        const blogScrollLeftBtn = document.getElementById('blog-scroll-left');
+        const blogScrollRightBtn = document.getElementById('blog-scroll-right');
+
+        if (blogScrollContainer && blogScrollLeftBtn && blogScrollRightBtn) {
+            const scrollCheck = () => {
+                const maxScrollLeft = blogScrollContainer.scrollWidth - blogScrollContainer.clientWidth;
+                blogScrollLeftBtn.style.display = blogScrollContainer.scrollLeft > 5 ? 'block' : 'none';
+                blogScrollRightBtn.style.display = blogScrollContainer.scrollLeft < maxScrollLeft - 5 ? 'block' : 'none';
+            }
+
+            blogScrollRightBtn.addEventListener('click', () => {
+                const card = blogScrollContainer.querySelector('.content-card');
+                const scrollAmount = card ? card.offsetWidth + 16 : 300; // 16px from space-x-4
+                blogScrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            blogScrollLeftBtn.addEventListener('click', () => {
+                const card = blogScrollContainer.querySelector('.content-card');
+                const scrollAmount = card ? card.offsetWidth + 16 : 300; // 16px from space-x-4
+                blogScrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            
+            // Use MutationObserver to wait for dynamic content
+             const observer = new MutationObserver((mutationsList, observer) => {
+                for(const mutation of mutationsList) {
+                    if (mutation.type === 'childList') {
+                       setTimeout(scrollCheck, 100); // Delay to allow rendering
+                       observer.disconnect(); // We only need to run this once after content is loaded
+                    }
+                }
+            });
+            observer.observe(blogScrollContainer, { childList: true });
+
+            blogScrollContainer.addEventListener('scroll', scrollCheck);
+            window.addEventListener('resize', scrollCheck);
+        }
+    });
     </script>
 </body>
 </html>

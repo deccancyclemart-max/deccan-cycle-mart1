@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the professional cycle services at Deccan Cycle Mart, including sales of various bike types, spare parts, accessories, customization, and expert repairs.">
+    <meta name="keywords" content="cycle services, bike repair, bicycle customization, cycle sales, spare parts, cycle accessories, Deccan Cycle Mart">
+    <meta name="author" content="Deccan Cycle Mart">
+    <title>Our Services - Deccan Cycle Mart</title>
+    <link rel="icon" type="image/png" href="DECCAN.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#287cb2',
+                        'deep-blue': '#064771', // Title Color
+                        'accent-yellow': '#fded0d', // Button & Glow Color
+                        'light-bg': '#f9fafb', // Lighter than f8.9fa
+                        'text-dark': '#1e293b',
+                        'text-light': '#64748b',
+                        'text-neutral-grey': '#6c757d', // Description Color
+                        'border-light-grey': '#e5e7eb', // Input/Card border
+                        'whatsapp-green': '#25D366',
+                        'whatsapp-green-hover': '#1ebc59',
+                        'footer-bg': '#f0f4f8', 
+                    },
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'] 
+                    },
+                    borderRadius: {
+                        '4xl': '1.5rem', 
+                        '2xl': '1rem',   
+                        'xl': '0.75rem',  
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: #FFFFFF;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-card {
+            background: rgba(249, 250, 251, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(230, 232, 236, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08), 0 0 30px rgba(40, 124, 178, 0.1); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.1), 0 0 50px rgba(40, 124, 178, 0.2);
+        }
+
+        .premium-button {
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            color: #064771; 
+            background-color: #fded0d;
+        }
+        .premium-button:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px 5px rgba(255, 215, 0, 0.7);
+        }
+        .premium-button-blue {
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            color: #FFFFFF;
+            background-color: #064771;
+        }
+        .premium-button-blue:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px 5px rgba(40, 124, 178, 0.6); 
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @media (max-width: 767px) {
+            .mobile-marquee {
+                display: flex;
+                animation: marquee 45s linear infinite;
+                will-change: transform;
+            }
+            .mobile-marquee:hover {
+                animation-play-state: paused;
+            }
+            @keyframes marquee {
+                0% { transform: translateX(0%); }
+                100% { transform: translateX(-50%); }
+            }
+        }
+
+        .floating-whatsapp-button { 
+            position: fixed; 
+            bottom: 24px;
+            right: 24px;
+            z-index: 50; 
+            width: 64px;
+            height: 64px;
+            background-color: #25D366;
+            color: #ffffff; 
+            border-radius: 9999px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out; 
+        }
+        .floating-whatsapp-button:hover { 
+            background-color: #1ebc59;
+            transform: scale(1.10);
+        }
+        .whatsapp-icon { 
+            width: 36px;
+            height: 36px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body class="text-text-dark font-sans antialiased">
+    <div id="root" class="flex flex-col min-h-screen">
+        
+        <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 border-b border-border-light-grey">
+            <div class="max-w-screen-xl mx-auto px-6">
+                <div class="flex items-center justify-between h-20">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img src="blue deccan logo.png" alt="Deccan Cycle Mart Logo" class="h-10 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x40/064771/ffffff?text=Logo';">
+                        <span class="text-xl font-bold text-deep-blue">Deccan Cycle Mart</span>
+                    </a>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">Home</a>
+                        <a href="about.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">About Us</a>
+                        <a href="services.html" class="font-semibold text-primary-blue border-b-2 border-primary-blue pb-1">Service</a>
+                        <a href="media.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">Media</a>
+                        <a href="contact.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">Contact</a>
+                    </nav>
+                    <button type="button" class="open-service-modal hidden md:inline-block premium-button py-3 px-6 rounded-xl text-base">
+                        Book Service
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-grow">
+
+            <section class="text-center py-20 md:py-28 font-montserrat">
+                <div class="max-w-screen-md mx-auto px-6">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-deep-blue">Our Services</h1>
+                    <p class="mt-6 text-lg md:text-xl text-text-neutral-grey leading-relaxed">
+                        From brand new bikes to expert maintenance, we provide everything you need to fuel your passion for cycling.
+                    </p>
+                    <button type="button" class="open-service-modal inline-block mt-8 premium-button-blue py-4 px-10 rounded-xl text-lg">
+                        Book Service
+                    </button>
+                </div>
+            </section>
+
+            <section id="services" class="font-montserrat py-10 md:py-20 fade-in-section overflow-hidden">
+                <div class="w-full mx-auto space-y-20">
+                    
+                    <div>
+                        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-8">
+                            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-deep-blue">Bicycle Sales</h2>
+                            <p class="text-lg text-text-neutral-grey mt-3 max-w-3xl">Find your perfect ride from our diverse collection of high-quality bicycles.</p>
+                        </div>
+                        <div class="carousel-container flex overflow-x-auto scrollbar-hide pb-6 pl-6 sm:pl-8 md:pl-12">
+                            <div class="carousel-track flex space-x-8">
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="BicycleSales_ Gearcycle.webp" alt="Gear Bicycles" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Gear Bicycles</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Multi-speed bikes for versatile performance.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="BicycleSales_ Kidscycle.webp" alt="Kids Cycles" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Kids Cycles</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Safe and fun bikes for young riders.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="BicycleSales_MTB.webp" alt="MTB Bicycles" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">MTB Bicycles</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Durable frames built for rugged trails.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="BicycleSales_Mountainbike.webp" alt="Mountain Bikes" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Mountain Bikes</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">The perfect blend of road and mountain bikes.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="BicycleSales_Roadbike.webp" alt="Road Bikes" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Road Bikes</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Lightweight design for speed and efficiency.</p></div></div>
+                                <div class="content-card rounded-2xl flex items-center justify-center p-6 w-80 flex-shrink-0"><div class="text-center"><h3 class="text-2xl font-bold text-primary-blue">And More...</h3><p class="text-text-neutral-grey mt-2">Visit us to see our full collection!</p></div></div>
+                            </div>
+                            <div class="w-6 sm:w-8 md:w-12 flex-shrink-0"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-8">
+                            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-deep-blue">Kids Products</h2>
+                            <p class="text-lg text-text-neutral-grey mt-3 max-w-3xl">Fun and safe rides for the little ones to start their cycling adventure.</p>
+                        </div>
+                        <div class="carousel-container flex overflow-x-auto scrollbar-hide pb-6 pl-6 sm:pl-8 md:pl-12">
+                            <div class="carousel-track flex space-x-8">
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Kidsproduct_Tricycle.webp" alt="Tricycles" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Tricycles</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Stable and fun for the youngest riders.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Kidsproduct_ecar.webp" alt="Kid E-Cars" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Kid E-Cars</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Battery-powered cars for endless fun.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Kidsproduct_ebike.webp" alt="Kids E-Bikes" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Kids E-Bikes</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Electric bikes designed for children's safety.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Kidsproduct_Kickscooty.webp" alt="Kick Scooty" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Kick Scooty</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Perfect for developing balance and coordination.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="ubsakdrxfhmb5jocftjh.webp" alt="Walkers" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Walkers</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Supportive walkers for early steps.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Kidsproduct_Magiccars.webp" alt="Magic Cars" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Magic Cars</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Twist, turn, and go with these fun rides.</p></div></div>
+                            </div>
+                            <div class="w-6 sm:w-8 md:w-12 flex-shrink-0"></div>
+                        </div>
+                    </div>
+                    
+                     <div>
+                        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-8">
+                            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-deep-blue">Spare Parts</h2>
+                            <p class="text-lg text-text-neutral-grey mt-3 max-w-3xl">Genuine spare parts to keep your bicycle in top condition.</p>
+                        </div>
+                        <div class="carousel-container flex overflow-x-auto scrollbar-hide pb-6 pl-6 sm:pl-8 md:pl-12">
+                            <div class="carousel-track flex space-x-8">
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Spareparts_seat.webp" alt="Seats" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Seats</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Ergonomic saddles for maximum comfort.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Spareparts_handles.webp" alt="Handles" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Handles</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">A wide range of handlebars for control.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="spareparts_pedals.webp" alt="Pedals" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Pedals</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">High-grip pedals for efficient power transfer.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="spareparts_breakparts.webp" alt="Brakes" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Brakes</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Reliable brake systems for your safety.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="spareparts_chain.webp" alt="Chains" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Chains</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Durable chains for smooth gear shifting.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="spareparts_tyres.webp" alt="Tires" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Tires</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Puncture-resistant tires for all terrains.</p></div></div>
+                                <div class="content-card rounded-2xl flex items-center justify-center p-6 w-80 flex-shrink-0"><div class="text-center"><h3 class="text-2xl font-bold text-primary-blue">Many More...</h3><p class="text-text-neutral-grey mt-2">All spare parts available in-store.</p></div></div>
+                            </div>
+                            <div class="w-6 sm:w-8 md:w-12 flex-shrink-0"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-8">
+                            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-deep-blue">Accessories</h2>
+                            <p class="text-lg text-text-neutral-grey mt-3 max-w-3xl">Enhance your cycling experience with our range of essential accessories.</p>
+                        </div>
+                        <div class="carousel-container flex overflow-x-auto scrollbar-hide pb-6 pl-6 sm:pl-8 md:pl-12">
+                            <div class="carousel-track flex space-x-8">
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Accesaries_Lights.webp" alt="Lights" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Lights</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Bright, rechargeable lights for visibility.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Accesaries_lock.webp" alt="Locks" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Locks</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Secure locks to protect your bike.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Accesaries_Mudgat.webp" alt="Mudguards" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Mudguards</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Keep yourself clean on wet roads.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Accesaries_Grips.webp" alt="Grips" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Grips</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Comfortable grips for a better hold.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Accesaries_Helmets.webp" alt="Helmets" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Helmets</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Certified helmets for your protection.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Accesaries_waterbottle holder.webp" alt="Bottle Holders" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Bottle Holders</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Stay hydrated on your rides.</p></div></div>
+                                <div class="content-card rounded-2xl flex items-center justify-center p-6 w-80 flex-shrink-0"><div class="text-center"><h3 class="text-2xl font-bold text-primary-blue">And More...</h3><p class="text-text-neutral-grey mt-2">Find all the gear you need.</p></div></div>
+                            </div>
+                            <div class="w-6 sm:w-8 md:w-12 flex-shrink-0"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-8">
+                            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-deep-blue">Customization</h2>
+                            <p class="text-lg text-text-neutral-grey mt-3 max-w-3xl">Transform your bike into a personalized machine with our expert upgrades.</p>
+                        </div>
+                        <div class="carousel-container flex overflow-x-auto scrollbar-hide pb-6 pl-6 sm:pl-8 md:pl-12">
+                            <div class="carousel-track flex space-x-8">
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Customization_Ebike kit.webp" alt="Electric Conversion" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Ordinary to Electric</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Convert your bike to an e-bike.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Customization_bearing Ubgrades.webp" alt="Bearing Upgrades" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Bearing Upgrades</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Smoother rides with bearing upgrades.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Customization_gear ubgres.webp" alt="Gear Installation" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Gear Installation</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Add or upgrade your gear system.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Customization_custumbreak.webp" alt="Custom Brakes" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Custom Brakes</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">High-performance brake installations.</p></div></div>
+                                <div class="content-card rounded-2xl flex items-center justify-center p-6 w-80 flex-shrink-0"><div class="text-center"><h3 class="text-2xl font-bold text-primary-blue">And More...</h3><p class="text-text-neutral-grey mt-2">Bring your ideas to us!</p></div></div>
+                            </div>
+                            <div class="w-6 sm:w-8 md:w-12 flex-shrink-0"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-8">
+                            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-deep-blue">Expert Repairs & Maintenance</h2>
+                            <p class="text-lg text-text-neutral-grey mt-3 max-w-3xl">Keep your ride safe and smooth with our professional maintenance services.</p>
+                        </div>
+                        <div class="carousel-container flex overflow-x-auto scrollbar-hide pb-6 pl-6 sm:pl-8 md:pl-12">
+                            <div class="carousel-track flex space-x-8">
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Expert Repairs & Maintenance_gear repair.webp" alt="Gear System Repair" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Gear System Repair</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Precise tuning for flawless shifting.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Expert Repairs & Maintenance_chainclean.webp" alt="Chain Cleaning" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Chain Cleaning</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Extend your drivetrain's lifespan.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Expert Repairs & Maintenance_wheelalignmnetin.webp" alt="Wheel Alignments" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Wheel Alignments</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Proper alignment for a stable, efficient ride.</p></div></div>
+                                <div class="content-card rounded-2xl overflow-hidden flex flex-col w-80 flex-shrink-0"><img src="Expert Repairs & Maintenance_Breakadjust_full tune up.webp" alt="Full Tune-Up" class="w-full h-48 object-contain bg-white"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold text-deep-blue">Full Tune-Up</h3><p class="text-text-neutral-grey text-base mt-1 flex-grow">Comprehensive check-up for your bike.</p></div></div>
+                                <div class="content-card rounded-2xl flex items-center justify-center p-6 w-80 flex-shrink-0"><div class="text-center"><h3 class="text-2xl font-bold text-primary-blue">And More...</h3><p class="text-text-neutral-grey mt-2">We handle all types of repairs.</p></div></div>
+                            </div>
+                            <div class="w-6 sm:w-8 md:w-12 flex-shrink-0"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer id="contact" class="bg-footer-bg pt-20 pb-8 border-t border-border-light-grey">
+            <div class="max-w-screen-xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center sm:text-left">
+                    <div class="flex flex-col items-center sm:items-start">
+                         <a href="index.html" class="flex items-center gap-2 mb-4">
+                            <img src="blue deccan logo.png" alt="Deccan Cycle Mart Logo" class="h-10 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x40/064771/ffffff?text=Logo';">
+                            <span class="text-xl font-bold text-deep-blue">Deccan Cycle Mart</span>
+                        </a>
+                        <p class="text-text-neutral-grey">Proudly serving Bollaram, Kompally, Kowkoor, Alwal, Jonnabanda and Deliveries to nearby Secunderabad on request.</p>
+                    </div>
+                    <div class="lg:mx-auto">
+                        <h3 class="text-lg font-semibold text-deep-blue mb-4">Quick Links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="index.html" class="text-text-neutral-grey hover:text-primary-blue">Home</a></li>
+                            <li><a href="about.html" class="text-text-neutral-grey hover:text-primary-blue">About Us</a></li>
+                            <li><a href="services.html" class="text-text-neutral-grey hover:text-primary-blue">Services</a></li>
+                            <li><a href="media.html" class="text-text-neutral-grey hover:text-primary-blue">Media</a></li>
+                            <li><a href="contact.html" class="text-text-neutral-grey hover:text-primary-blue">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="lg:mx-auto">
+                        <h3 class="text-lg font-semibold text-deep-blue mb-4">Contact Us</h3>
+                        <ul class="space-y-4 text-text-neutral-grey">
+                           <li class="flex items-center justify-center sm:justify-start gap-3"><svg class="w-5 h-5 text-primary-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg><a href="tel:+918332993068" class="hover:text-primary-blue transition">+91 8332993068</a></li>
+                           <li class="flex items-center justify-center sm:justify-start gap-3"><svg class="w-5 h-5 text-primary-blue flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/></svg><a href="https://wa.me/918332993068" target="_blank" class="hover:text-primary-blue transition">WhatsApp Us</a></li>
+                           <li class="flex items-start justify-center sm:justify-start gap-3"><svg class="w-5 h-5 text-primary-blue flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>Opp Ushodaya, New Bollaram, Secunderabad 500010</span></li>
+                        </ul>
+                    </div>
+                    <div class="lg:ml-auto">
+                         <h3 class="text-lg font-semibold text-deep-blue mb-4">Find Us Here</h3>
+                         <iframe 
+                            src="https://www.google.com/maps?q=Deccan+Cycle+Mart,+New+Bollaram,+Secunderabad+500010&output=embed"
+                            class="w-full h-48 rounded-xl border border-border-light-grey"
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="mt-16 border-t border-border-light-grey pt-8 text-center text-text-light text-sm">
+                    <p>© 2025 Deccan Cycle Mart. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="service-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none">
+        <div id="service-modal-content" class="content-card relative rounded-2xl w-full max-w-lg p-8 transform transition-all duration-300 ease-in-out scale-95 opacity-0">
+            <button class="close-modal-button absolute top-4 right-4 text-gray-400 hover:text-gray-800"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-deep-blue">Book Home Service</h2>
+                <p class="text-text-neutral-grey mt-2">Enter your details and we'll arrange a pickup.</p>
+            </div>
+            <form action="https://formsubmit.co/deccancyclemart@gmail.com" method="POST" class="space-y-4">
+                <input type="text" name="name" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue" placeholder="Your Name">
+                <input type="tel" name="phone" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue" placeholder="Your Phone Number">
+                
+                <div>
+                    <textarea id="modal-address" name="address" rows="3" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue transition" placeholder="Your Full Address"></textarea>
+                    <button type="button" id="modal-getLocationBtn" class="mt-2 w-full text-deep-blue font-semibold py-2 px-4 border border-deep-blue rounded-xl transition-colors flex items-center justify-center hover:bg-deep-blue hover:text-white">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
+                        Use My Location
+                    </button>
+                    <p id="modal-location-status" class="text-sm text-center mt-2 h-5"></p>
+                </div>
+
+                <select name="service_type" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue text-gray-500">
+                    <option value="" disabled selected>Select Service Type</option>
+                    <option>Service and Repair</option>
+                    <option>Assembly</option>
+                    <option>Exchange</option>
+                    <option>Rental</option>
+                    <option>Painting</option>
+                    <option>Customization</option>
+                    <option>Electric Kit Install</option>
+                    <option>Others</option>
+                </select>
+                <input type="hidden" name="_subject" value="New Modal Service Request!"><input type="hidden" name="_captcha" value="false">
+                <button type="submit" class="w-full premium-button py-3 rounded-xl text-lg">Submit Request</button>
+                <p class="text-xs text-text-neutral-grey text-center pt-2">We respect your privacy. Your data is used only to serve you better.</p>
+            </form>
+        </div>
+    </div>
+    
+    <a href="https://wa.me/918332993068?text=Hello!%20I%20have%20a%20question." 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="floating-whatsapp-button"> 
+        <svg class="whatsapp-icon" fill="currentColor" viewBox="0 0 24 24"> 
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/> 
+        </svg>
+    </a> 
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        function initializeModal(modalId, openButtonsClass) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            const openButtons = document.querySelectorAll(`.${openButtonsClass}`);
+            const content = modal.querySelector('div[id$="-content"]');
+            const closeButtons = modal.querySelectorAll('.close-modal-button');
+            const openModal = () => {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                content.classList.remove('opacity-0', 'scale-95');
+            };
+            const closeModal = () => {
+                content.classList.add('opacity-0', 'scale-95');
+                modal.classList.add('opacity-0');
+                setTimeout(() => modal.classList.add('pointer-events-none'), 300);
+            };
+            openButtons.forEach(btn => btn.addEventListener('click', openModal));
+            closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
+            modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+        }
+        initializeModal('service-modal', 'open-service-modal');
+
+        const fadeInObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(target => fadeInObserver.observe(target));
+        
+        const geoBtn = document.getElementById('modal-getLocationBtn');
+        const addressField = document.getElementById('modal-address');
+        const statusMsg = document.getElementById('modal-location-status');
+        if (geoBtn && addressField && statusMsg) {
+            geoBtn.addEventListener('click', () => {
+                if (navigator.geolocation) {
+                    geoBtn.disabled = true;
+                    geoBtn.textContent = 'Fetching Location...';
+                    statusMsg.textContent = 'Please wait...';
+                    statusMsg.className = 'text-sm text-center mt-2 h-5 text-gray-500';
+                    navigator.geolocation.getCurrentPosition(
+                        async (position) => {
+                            const { latitude, longitude } = position.coords;
+                            try {
+                                const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`);
+                                const data = await response.json();
+                                if (data && data.display_name) {
+                                    addressField.value = data.display_name;
+                                    statusMsg.textContent = 'Success!';
+                                    statusMsg.className = 'text-sm text-center mt-2 h-5 text-green-600';
+                                } else { throw new Error('No address found'); }
+                            } catch (error) {
+                                statusMsg.textContent = 'Failed to fetch address.';
+                                statusMsg.className = 'text-sm text-center mt-2 h-5 text-red-600';
+                            } finally {
+                                geoBtn.disabled = false;
+                                geoBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg> Use My Location`;
+                            }
+                        },
+                        (error) => {
+                            statusMsg.textContent = 'Permission denied.';
+                            statusMsg.className = 'text-sm text-center mt-2 h-5 text-red-600';
+                            geoBtn.disabled = false;
+                            geoBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg> Use My Location`;
+                        }
+                    );
+                } else {
+                    statusMsg.textContent = 'Geolocation not supported.';
+                    statusMsg.className = 'text-sm text-center mt-2 h-5 text-red-600';
+                }
+            });
+        }
+        
+        function setupMarquee() {
+            if (window.innerWidth < 768) {
+                document.querySelectorAll('.carousel-container').forEach(container => {
+                    const track = container.querySelector('.carousel-track');
+                    if (track && !track.dataset.marqueeInitialized) {
+                        const items = Array.from(track.children);
+                        items.forEach(item => {
+                            const clone = item.cloneNode(true);
+                            track.appendChild(clone);
+                        });
+                        track.classList.add('mobile-marquee');
+                        track.dataset.marqueeInitialized = 'true';
+                    }
+                });
+            } else {
+                document.querySelectorAll('.carousel-track.mobile-marquee').forEach(track => {
+                    if (track.dataset.marqueeInitialized) {
+                        track.classList.remove('mobile-marquee');
+                        const originalItemCount = track.children.length / 2;
+                        while (track.children.length > originalItemCount) {
+                            track.removeChild(track.lastChild);
+                        }
+                        delete track.dataset.marqueeInitialized;
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('load', setupMarquee);
+        window.addEventListener('resize', setupMarquee);
+    });
+    </script>
+</body>
+</html>

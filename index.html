@@ -20,11 +20,9 @@
                         'primary-blue': '#287cb2',
                         'deep-blue': '#064771',
                         'accent-yellow': '#fded0d',
-                        'dark-bg': '#0a1a2f',
-                        'very-dark-bg': '#020c1a',
-                        'hero-left-bg': '#0a1a2f',
-                        'hero-right-bg': '#287cb2',
-                        'brands-bg': '#041020',
+                        'light-bg': '#f8f9fa',
+                        'text-dark': '#1e293b',
+                        'text-light': '#64748b',
                         'whatsapp-green': '#25D366',
                         'whatsapp-green-hover': '#1ebc59',
                     },
@@ -36,400 +34,626 @@
         }
     </script>
     <style>
+        :root {
+            --accent-yellow: #fded0d;
+        }
+
         html { scroll-behavior: smooth; }
-        body {
-            background-color: #020c1a; /* Fallback color */
-            background-image: linear-gradient(170deg, #020c1a 5%, #0a1a2f 30%, #064771 60%, #0a1a2f 85%, #020c1a 100%);
+        body { background-color: #f8f9fa; }
+        
+        @keyframes animated-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        /* Keyframes for the infinite scroll animation */
-        @keyframes scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-100%); }
+        .gradient-text-animated {
+            background: linear-gradient(90deg, #fded0d, #287cb2, #064771, #fded0d);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: animated-gradient 4s ease infinite;
         }
-        /* Class to apply the animation */
-        .animate-scroll {
-            animation: scroll 40s linear infinite;
+
+        .gradient-button {
+            background-image: linear-gradient(to right, #fded0d 0%, #ffd900 50%, #fded0d 100%);
+            background-size: 200% auto;
+            transition: 0.5s;
+        }
+        .gradient-button:hover { background-position: right center; }
+        
+        .brand-name-gradient {
+            background: linear-gradient(90deg, #064771, #287cb2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .hero-bg {
+            background-color: #f0f4f8; 
+            background-image: radial-gradient(circle at 90% 10%, rgba(40, 124, 178, 0.4), transparent 40%),
+                              radial-gradient(circle at 10% 90%, rgba(253, 237, 13, 0.3), transparent 40%),
+                              radial-gradient(circle at 50% 50%, rgba(6, 71, 113, 0.2), transparent 70%);
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(253, 237, 13, 0.6), 0 0 30px rgba(253, 237, 13, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(253, 237, 13, 0.9), 0 0 60px rgba(253, 237, 13, 0.7);
+            }
+        }
+        .cta-glow {
+            animation: glow 2.5s infinite ease-in-out;
+        }
+
+        #assembly-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+        }
+        
+        .bike-part-img {
+            position: absolute;
+            will-change: transform, opacity;
+            transition: opacity 0.8s ease-out, transform 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0;
+        }
+        
+        #part-frame { top: 50.5%; left: 50%; width: 90%; transform: translate(-50%, -50%); }
+        #part-wheel-front { top: 60.5%; left: 78.5%; width: 48%; transform: translate(-50%, -50%); }
+        #part-wheel-rear { top: 61%; left: 21.5%; width: 49%; transform: translate(-50%, -50%); }
+        #part-handle { top: 21%; left: 70.5%; width: 40%; transform: translate(-50%, -50%); }
+        #part-seat { top: 23%; left: 31.5%; width: 24%; transform: translate(-50%, -50%); }
+        #part-gears { top: 61.5%; left: 40.5%; width: 32%; transform: translate(-50%, -50%); }
+        
+        #final-bike-image {
+            position: absolute;
+            top: 50%; left: 50%; width: 90%;
+            transform: translate(-50%, -50%) scale(0.95);
+            opacity: 0;
+            will-change: transform, opacity;
+            transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        #final-bike-image.visible {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        #magic-flash {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 50px; height: 50px;
+            background-color: transparent;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+        }
+        #magic-flash.animate {
+            animation: shockwave 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+
+        @keyframes shockwave {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 1;
+                box-shadow: 0 0 5px 5px rgba(253, 237, 13, 0.9), 
+                            0 0 10px 10px rgba(253, 237, 13, 0.6), 
+                            0 0 15px 20px rgba(40, 124, 178, 0.3);
+            }
+            80% { opacity: 0.5; }
+            100% {
+                transform: translate(-50%, -50%) scale(3);
+                opacity: 0;
+                box-shadow: 0 0 50px 100px rgba(253, 237, 13, 0), 
+                            0 0 60px 120px rgba(253, 237, 13, 0), 
+                            0 0 70px 150px rgba(40, 124, 178, 0);
+            }
+        }
+
+        header {
+            transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        header.scrolled {
+            position: fixed;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom-width: 1px;
+            border-color: #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            padding-bottom: 6px;
+            font-medium;
+            color: #1e293b; 
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #287cb2; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #287cb2; 
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .nav-link.active {
+            color: #287cb2; 
+            font-weight: 600; 
+        }
+        .nav-link.active::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        #mobile-menu a.active {
+            color: #287cb2; 
+            font-weight: 700; 
+        }
+
+        /* --- [NEW] Service Card Glassmorphism & Button Styles --- */
+        .service-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .card-button {
+            background-color: #fded0d;
+            color: #1e293b;
+            font-weight: 700;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .card-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(253, 237, 13, 0.7);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .bike-part-img, #magic-flash, #final-bike-image, .cta-glow { 
+                animation: none !important;
+                transition: none !important; 
+            }
         }
     </style>
 </head>
-<body class="text-white font-sans antialiased">
+<body class="text-text-dark font-sans antialiased">
     <div id="root" class="flex flex-col min-h-screen">
-        <!-- Header -->
-        <header class="fixed top-0 left-0 right-0 z-40 bg-black/20 backdrop-blur-lg border-b border-white/10">
-            <div class="max-w-screen-xl mx-auto px-6">
-                <div class="flex items-center justify-between h-20">
-                    <!-- Left: Logo -->
-                    <a href="index.html" class="flex items-center gap-3">
-                        <img src="DECCAN.png" alt="Deccan Cycle Mart Logo" class="h-12 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x50/0a1a2f/ffffff?text=Logo';">
-                        <span class="text-xl font-bold text-white hidden sm:block">Deccan Cycle Mart</span>
-                    </a>
-                    
-                    <!-- Center: Navigation -->
-                    <nav class="hidden md:flex items-center space-x-10">
-                        <a href="index.html" class="relative text-white font-semibold px-3 py-2">
-                            Home
-                            <span class="absolute left-0 bottom-0 h-[2px] w-full bg-[#fded0d]"></span>
-                        </a>
-                        <a href="about.html" class="relative group text-white font-semibold px-3 py-2">
-                            About
-                            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#fded0d] group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                        <a href="services.html" class="relative group text-white font-semibold px-3 py-2">
-                            Services
-                            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#fded0d] group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                        <a href="media.html" class="relative group text-white font-semibold px-3 py-2">
-                            Media
-                            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#fded0d] group-hover:w-full transition-all duration-300"></span>
-                        </a>
-                    </nav>
 
-                    <!-- Right: Contact Button -->
-                    <div class="hidden md:flex">
-                         <a href="contact.html" class="inline-block bg-accent-yellow text-deep-blue font-bold text-base px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">Contact Us</a>
-                    </div>
-
-                    <!-- Mobile Menu Button -->
-                    <div class="md:hidden">
-                        <button id="mobile-menu-button" class="text-white focus:outline-none">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 bg-dark-bg/95">
-                <a href="index.html" class="block py-2 text-lg text-accent-yellow font-bold">Home</a>
-                <a href="about.html" class="block py-2 text-lg transition-colors hover:text-accent-yellow">About</a>
-                <a href="services.html" class="block py-2 text-lg transition-colors hover:text-accent-yellow">Services</a>
-                <a href="media.html" class="block py-2 text-lg transition-colors hover:text-accent-yellow">Media</a>
-                <a href="contact.html" class="block mt-2 py-2 text-lg bg-accent-yellow text-deep-blue text-center rounded-md font-semibold">Contact Us</a>
-            </div>
-        </header>
-
-        <!-- Main Content -->
         <main class="flex-grow">
-            <!-- Refined Hero Section -->
-            <section id="home" class="relative overflow-hidden pt-20">
-                <div class="flex flex-col md:flex-row">
-                    <!-- Left Column (Text) -->
-                    <div class="w-full md:w-1/2 bg-hero-left-bg flex flex-col justify-center">
-                        <div class="text-center md:text-left px-6 py-20 md:py-32 lg:px-16 max-w-2xl mx-auto">
-                            <h1 class="text-5xl lg:text-7xl font-black leading-tight mb-4 text-white">
-                                Bollaram’s Most <span class="text-primary-blue">Trusted</span> Cycle Shop
-                            </h1>
-                            <p class="text-lg md:text-xl text-gray-300 tracking-wide mb-8">
-                                Sales • Service • Customization • Free Home Pickup & Drop Service within 5 KM
-                            </p>
-                            <button type="button" class="open-modal-button inline-block bg-accent-yellow text-deep-blue font-bold text-lg px-10 py-4 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-accent-yellow/30">
-                                Book Free Home Service
-                            </button>
+            <section id="home" class="relative hero-bg overflow-hidden min-h-screen flex flex-col">
+                <header class="absolute top-0 left-0 right-0 z-40">
+                    <div class="max-w-screen-xl mx-auto px-6">
+                        <div class="flex items-center justify-between h-20">
+                            <a href="index.html" class="flex items-center gap-2">
+                                <img src="blue deccan logo.png" alt="Deccan Cycle Mart Logo" class="h-12 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x50/ffffff/0a1a2f?text=Logo';">
+                                <span class="text-2xl hidden sm:block brand-name-gradient">Deccan Cycle Mart</span>
+                            </a>
+                            <nav class="hidden md:flex items-center space-x-8">
+                                <a href="#home" class="nav-link active">Home</a>
+                                <a href="About.html" class="nav-link">About Us</a>
+                                <a href="Service.html" class="nav-link">Service</a>
+                                <a href="media.html" class="nav-link">Media</a>
+                                <a href="contact.html" class="nav-link">Contact</a>
+                            </nav>
+                            <div class="hidden md:flex">
+                                <button type="button" class="open-modal-button gradient-button text-deep-blue font-bold text-base px-6 py-3 rounded-full shadow-lg transition-transform transform hover:scale-105">Book Service</button>
+                            </div>
+                            <div class="md:hidden">
+                                <button id="mobile-menu-button" class="text-text-dark focus:outline-none">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <!-- Right Column (Image) -->
-                    <div class="w-full md:w-1/2 bg-hero-right-bg flex items-center justify-center p-8 md:p-12">
-                        <img src="cool-bicycle-studio-removebg-preview.png" alt="A modern white mountain bike" class="w-full max-w-lg mx-auto h-auto transition-transform duration-500 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/287cb2/ffffff?text=Image+Missing';">
+                    <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 bg-white/95">
+                        <a href="#home" class="block py-2 text-lg">Home</a>
+                        <a href="#about" class="block py-2 text-lg">About Us</a>
+                        <a href="#features" class="block py-2 text-lg">Service</a>
+                        <a href="#media" class="block py-2 text-lg">Media</a>
+                        <a href="#contact" class="block py-2 text-lg">Contact</a>
+                        <a href="#booking" class="block mt-2 py-3 text-lg gradient-button text-deep-blue text-center rounded-full font-semibold">Book Service</a>
                     </div>
-                </div>
-                <!-- Scrolling Brands Ticker -->
-                <div class="bg-brands-bg py-5 overflow-hidden whitespace-nowrap">
-                    <div class="inline-block animate-scroll">
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">FIREFOX</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">HERO</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">HERCULES</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">MONTRA</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">VICTOR 91</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">SCHNELL</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">ATLAS</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">AVON</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">BSA</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">KROSS</span>
-                    </div>
-                    <div class="inline-block animate-scroll">
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">FIREFOX</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">HERO</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">HERCULES</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">MONTRA</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">VICTOR 91</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">SCHNELL</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">ATLAS</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">AVON</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">BSA</span>
-                        <span class="mx-8 text-gray-400 font-bold text-sm tracking-wider">KROSS</span>
+                </header>
+
+                <div class="flex-grow flex items-center">
+                    <div class="max-w-screen-xl mx-auto px-6 flex flex-col-reverse md:flex-row gap-8 items-center w-full">
+                        <div class="text-center md:text-left z-10">
+                            <h1 class="text-5xl lg:text-7xl font-black leading-tight mb-6">
+                               Every <span class="gradient-text-animated">Joyful Ride</span> Begins Here.
+                            </h1>
+                            <p class="text-lg md:text-xl text-text-light max-w-xl mx-auto md:mx-0 mb-10">
+                                Bollaram’s Most Trusted Cycle Shop – Sales, Service, Accessories, Rentals & Exchange
+                            </p>
+                            <div class="flex flex-col items-center md:items-start">
+                                <div class="relative inline-block">
+                                    <button type="button" id="cta-button" class="open-modal-button gradient-button text-deep-blue font-bold text-lg px-10 py-4 rounded-full shadow-lg transition-transform transform hover:scale-105 relative z-10 cta-glow">
+                                        Book Free Home Service
+                                    </button>
+                                </div>
+                                <div class="mt-4 flex items-center text-text-light">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    <span>Free pickup & drop — 5 km (Bollaram)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="assembly-container" aria-hidden="true">
+                            <img src="Bicycle_Frame.png" id="part-frame" class="bike-part-img" alt="Bicycle Frame">
+                            <img src="bicycle_wheel_front_ani.png" id="part-wheel-front" class="bike-part-img" alt="Bicycle Front Wheel">
+                            <img src="bicycle_back_wheel_ani.png" id="part-wheel-rear" class="bike-part-img" alt="Bicycle Rear Wheel">
+                            <img src="bicyle_handle_ani.png" id="part-handle" class="bike-part-img" alt="Bicycle Handlebars">
+                            <img src="bicycle_seat_ani.png" id="part-seat" class="bike-part-img" alt="Bicycle Seat">
+                            <img src="bicycle_gear_and_pedal_ani.png" id="part-gears" class="bike-part-img" alt="Bicycle Gears and Pedals">
+                            <div id="magic-flash"></div>
+                            <img src="Fully_Assembled_Bicycle.png" id="final-bike-image" alt="Fully Assembled Bicycle">
+                        </div>
                     </div>
                 </div>
             </section>
             
-            <!-- What We Offer Section -->
-            <section id="features" class="py-16 md:py-20">
+            <!-- --- [NEW] "What We Offer" Section --- -->
+            <section id="features" class="py-24 bg-light-bg">
                 <div class="max-w-screen-xl mx-auto px-6">
                     <div class="text-center mb-16">
-                        <h2 class="text-4xl md:text-5xl font-sans font-semibold tracking-wide">What We Offer</h2>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight">What We Offer</h2>
+                        <p class="text-lg text-text-light mt-4 max-w-2xl mx-auto">Everything you need for a perfect cycling experience, all in one place.</p>
                     </div>
+                    <!-- Service cards grid -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🚲</div><h3 class="text-xl font-semibold mb-2">Sales</h3><p class="text-gray-400">Premium kids & adult cycles.</p></div>
-                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🛠️</div><h3 class="text-xl font-semibold mb-2">Spare Parts & Repairs</h3><p class="text-gray-400">Brakes, chains, tires, more.</p></div>
-                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🧰</div><h3 class="text-xl font-semibold mb-2">Customization</h3><p class="text-gray-400">Unique mods & styling.</p></div>
-                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🏠</div><h3 class="text-xl font-semibold mb-2">Free Pickup & Drop</h3><p class="text-gray-400">Within 5 km radius.</p></div>
+                        
+                        <!-- Card 1: Cycle Sales -->
+                        <div class="service-card rounded-2xl p-8 flex flex-col text-center items-center">
+                            <div class="mb-4">
+                                <svg class="w-16 h-16 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 18.734V6.5A2.5 2.5 0 019.5 4h.086c.938 0 1.757.547 2.122 1.391L13 9h1zm0 0L13.5 7m-1.5-3.5L12 2.5" transform="translate(0 -1) scale(0.9)"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9 9 0 110-18 9 9 0 010 18z"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2 text-deep-blue">Cycle Sales</h3>
+                            <p class="text-text-light mb-6 flex-grow">Explore premium kids’ cycles, MTBs, and road bikes — all at best prices.</p>
+                            <a href="https://wa.me/918332993068" target="_blank" class="card-button w-full py-3 rounded-full text-center">View Collection</a>
+                        </div>
+
+                        <!-- Card 2: Pickup & Drop -->
+                        <div class="service-card rounded-2xl p-8 flex flex-col text-center items-center">
+                            <div class="mb-4">
+                                <svg class="w-16 h-16 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2 text-deep-blue">Pickup & Drop</h3>
+                            <p class="text-text-light mb-6 flex-grow">Tension-free home service with free pickup & drop within 5 KM.</p>
+                            <button type="button" class="card-button w-full py-3 rounded-full open-service-modal">Book Service</button>
+                        </div>
+
+                        <!-- Card 3: Cycle Rentals -->
+                        <div class="service-card rounded-2xl p-8 flex flex-col text-center items-center">
+                            <div class="mb-4">
+                               <svg class="w-16 h-16 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2 text-deep-blue">Cycle Rentals</h3>
+                            <p class="text-text-light mb-6 flex-grow">Affordable short and long-term cycle rentals for students & families.</p>
+                            <a href="#rental-plans" class="card-button w-full py-3 rounded-full text-center">See Plans</a>
+                        </div>
+
+                        <!-- Card 4: Easy Exchange -->
+                        <div class="service-card rounded-2xl p-8 flex flex-col text-center items-center">
+                            <div class="mb-4">
+                                <svg class="w-16 h-16 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2 text-deep-blue">Easy Exchange</h3>
+                            <p class="text-text-light mb-6 flex-grow">Exchange your old cycle for a new one at fair value.</p>
+                            <button type="button" class="card-button w-full py-3 rounded-full open-exchange-modal">Check Value</button>
+                            <a href="#services-page" class="text-primary-blue mt-4 font-semibold text-sm hover:underline">See More →</a>
+                        </div>
                     </div>
                 </div>
             </section>
-
-            <!-- Who We Are Section -->
-            <section class="py-16 md:py-24">
+            
+            <section id="about" class="py-24 bg-white">
                 <div class="container mx-auto px-6 text-center">
                     <div class="max-w-3xl mx-auto">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Who We Are</h2>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-4">Who We Are</h2>
+                        <p class="text-lg text-text-light leading-relaxed mb-8">
                             Deccan Cycle Mart is a modern and trusted cycle store, deeply rooted in the Bollaram community. We are passionate about providing top-quality bicycles and exceptional service to riders of all ages and skill levels.
                         </p>
-                        <a href="about.html" class="inline-block bg-transparent border-2 border-accent-yellow text-accent-yellow font-bold text-lg px-8 py-3 rounded-lg shadow-lg transition-colors transform hover:bg-accent-yellow hover:text-deep-blue">
-                            Learn More
+                        <a href="tel:+918332993068" class="inline-block bg-primary-blue text-white font-bold text-lg px-8 py-3 rounded-full shadow-lg transition-transform transform hover:scale-105">
+                            Call Us Now
                         </a>
                     </div>
                 </div>
             </section>
 
-            <!-- Why Choose Us Section -->
-            <section class="py-16 md:py-24">
-                <div class="container mx-auto px-6">
+            <section id="booking" class="py-24">
+                <div class="max-w-xl mx-auto px-6">
                     <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold">Why Choose Us?</h2>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight">Book a Free Home Service</h2>
+                        <p class="text-lg text-text-light mt-4">Fill out the form below and we'll get back to you shortly.</p>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">⭐</div><h3 class="text-xl font-bold mb-2">Top Brands</h3><p class="text-gray-400">We stock only the best and most reliable cycle brands.</p></div>
-                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🔧</div><h3 class="text-xl font-bold mb-2">Skilled Technicians</h3><p class="text-gray-400">Our expert team handles every repair with precision.</p></div>
-                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">🚚</div><h3 class="text-xl font-bold mb-2">Free Pickup & Drop</h3><p class="text-gray-400">Convenient service right at your doorstep.</p></div>
-                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl text-center shadow-md hover:shadow-lg hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"><div class="text-5xl mb-4">💬</div><h3 class="text-xl font-bold mb-2">WhatsApp Support</h3><p class="text-gray-400">Get instant help and updates via chat.</p></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Visible Booking Form Section -->
-            <section id="booking" class="py-16 md:py-20">
-                <div class="max-w-screen-xl mx-auto px-6">
-                    <div class="max-w-xl mx-auto">
-                        <h2 class="text-4xl md:text-5xl font-sans font-semibold tracking-wide text-center mb-8">Book a Free Home Service</h2>
-                        <form action="https://formsubmit.co/deccancyclemart@gmail.com" method="POST" class="space-y-6">
-                            <div><input type="text" name="name" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Name"></div>
-                            <div><input type="tel" name="phone" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Phone Number"></div>
-                            <div>
-                                <textarea name="address" id="page-address" rows="3" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Full Address"></textarea>
-                                <button type="button" id="page-getLocationBtn" class="w-full mt-2 bg-deep-blue/60 hover:bg-deep-blue/90 text-white font-semibold py-2 px-4 border border-primary-blue/50 rounded-lg shadow-sm transition-colors flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
-                                    Use My Current Location
-                                </button>
-                                <p id="page-location-status" class="text-sm mt-2 h-5 text-center"></p>
-                            </div>
-                            <input type="hidden" name="coordinates" id="page-coordinates">
-                            <div><textarea name="service" id="service" rows="3" placeholder="e.g., Assembly, Repair, Tuning, etc." required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition"></textarea></div>
-                            <input type="hidden" name="_next" value="https://wa.me/918332993068?text=Hi, I just submitted a home service request on your website.">
-                            <input type="hidden" name="_subject" value="New Home Service Request!">
-                            <input type="hidden" name="_captcha" value="false">
-                            <button type="submit" class="w-full bg-accent-yellow text-deep-blue font-bold text-lg py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">Submit Request</button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Trust/CTA Bar Section -->
-            <section id="trust" class="py-16">
-                <div class="max-w-screen-xl mx-auto px-6">
-                    <div class="bg-white/10 rounded-xl p-8 text-center backdrop-blur-sm shadow-md">
-                        <h3 class="text-2xl md:text-3xl font-bold mb-4">Trusted by 1500+ Happy Families in Bollaram–Secunderabad</h3>
-                        <button type="button" class="open-modal-button inline-block bg-accent-yellow text-deep-blue font-bold text-lg px-8 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">Book Now</button>
-                    </div>
+                    <form action="https://formsubmit.co/deccancyclemart@gmail.com" method="POST" class="space-y-6">
+                        <div><input type="text" name="name" required class="w-full bg-white border-2 border-gray-300 rounded-lg p-4 focus:border-primary-blue focus:ring-primary-blue transition" placeholder="Your Name"></div>
+                        <div><input type="tel" name="phone" required class="w-full bg-white border-2 border-gray-300 rounded-lg p-4 focus:border-primary-blue focus:ring-primary-blue transition" placeholder="Your Phone Number"></div>
+                        <div>
+                            <textarea name="address" id="page-address" rows="3" required class="w-full bg-white border-2 border-gray-300 rounded-lg p-4 focus:border-primary-blue focus:ring-primary-blue transition" placeholder="Your Full Address"></textarea>
+                            <button type="button" id="page-getLocationBtn" class="w-full mt-2 bg-gray-100 hover:bg-gray-200 text-text-light font-semibold py-3 px-4 border border-gray-300 rounded-lg shadow-sm transition-colors flex items-center justify-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                Use My Current Location
+                            </button>
+                            <p id="page-location-status" class="text-sm mt-2 h-5 text-center"></p>
+                        </div>
+                        <input type="hidden" name="coordinates" id="page-coordinates">
+                        <div><textarea name="service" id="service" rows="3" placeholder="Describe the service you need (e.g., Assembly, Repair, Tuning, etc.)" required class="w-full bg-white border-2 border-gray-300 rounded-lg p-4 focus:border-primary-blue focus:ring-primary-blue transition"></textarea></div>
+                        <input type="hidden" name="_next" value="https://wa.me/918332993068?text=Hi, I just submitted a home service request on your website.">
+                        <input type="hidden" name="_subject" value="New Home Service Request!">
+                        <input type="hidden" name="_captcha" value="false">
+                        <button type="submit" class="w-full gradient-button text-deep-blue font-bold text-lg py-4 rounded-full shadow-lg transition-transform transform hover:scale-105">Submit Request</button>
+                    </form>
                 </div>
             </section>
         </main>
 
-        <!-- Footer -->
-        <footer id="footer" class="bg-dark-bg pt-20 pb-8">
+        <footer id="contact" class="bg-white pt-20 pb-8 border-t border-gray-200">
             <div class="max-w-screen-xl mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    <!-- SEO Text Block -->
-                    <div class="lg:col-span-1">
-                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Let’s Stay Connected</h3>
-                        <p class="text-gray-400 font-light">Hi, we are always open for cooperation and suggestions. Contact us in one of the ways below.</p>
+                    <div class="lg-col-span-1">
+                        <h3 class="text-xl font-bold text-text-dark mb-4">Deccan Cycle Mart</h3>
+                        <p class="text-text-light">Your one-stop shop for all things cycling in Bollaram. We are always open for cooperation and suggestions.</p>
                     </div>
                     
-                    <!-- Quick Links -->
                     <div>
-                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Quick Links</h3>
+                        <h3 class="text-lg font-semibold text-text-dark mb-4">Quick Links</h3>
                         <ul class="space-y-3">
-                            <li><a href="index.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Home</a></li>
-                            <li><a href="services.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Services</a></li>
-                            <li><a href="media.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Media</a></li>
-                            <li><a href="contact.html" class="text-gray-300 hover:text-accent-yellow hover:underline">Contact</a></li>
+                            <li><a href="#home" class="text-text-light hover:text-primary-blue hover:underline">Home</a></li>
+                            <li><a href="#features" class="text-text-light hover:text-primary-blue hover:underline">Services</a></li>
+                            <li><a href="#about" class="text-text-light hover:text-primary-blue hover:underline">About</a></li>
+                            <li><a href="#booking" class="text-text-light hover:text-primary-blue hover:underline">Book Now</a></li>
                         </ul>
                     </div>
 
-                    <!-- Contact Us -->
                     <div>
-                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Contact Us</h3>
-                        <ul class="space-y-4 text-gray-300 font-light">
-                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg><a href="tel:+918332993068" class="hover:text-accent-yellow transition">+91 8332993068</a></li>
-                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/></svg><a href="https://wa.me/918332993068" target="_blank" rel="noopener noreferrer" class="hover:text-accent-yellow transition">WhatsApp: +91 8332993068</a></li>
-                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><a href="mailto:deccancyclemart@gmail.com" class="hover:text-accent-yellow transition">deccancyclemart@gmail.com</a></li>
-                            <li class="flex items-start"><svg class="w-5 h-5 mr-3 text-accent-yellow flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>Opp Ushodaya, New Bollaram, Secunderabad 500010</span></li>
+                        <h3 class="text-lg font-semibold text-text-dark mb-4">Contact Us</h3>
+                        <ul class="space-y-4 text-text-light">
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-primary-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg><a href="tel:+918332993068" class="hover:text-primary-blue transition">+91 8332993068</a></li>
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-primary-blue flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/></svg><a href="https://wa.me/918332993068" target="_blank" class="hover:text-primary-blue transition">WhatsApp Us</a></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-3 text-primary-blue flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>Opp Ushodaya, New Bollaram, Secunderabad 500010</span></li>
                         </ul>
                     </div>
 
-                    <!-- Embedded Map -->
                     <div>
-                        <h3 class="text-xl font-bold text-accent-yellow mb-4">Find Us on Google Maps</h3>
+                        <h3 class="text-lg font-semibold text-text-dark mb-4">Find Us Here</h3>
                         <iframe src="https://www.google.com/maps?q=Deccan+Cycle+Mart,+New+Bollaram,+Secunderabad+500010&output=embed" class="rounded-xl shadow-md w-full h-48" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
-                <div class="mt-16 border-t border-primary-blue/30 pt-8 text-center text-gray-400">
+                <div class="mt-16 border-t border-gray-200 pt-8 text-center text-text-light">
                     <p>© 2025 Deccan Cycle Mart. All rights reserved.</p>
                 </div>
             </div>
         </footer>
     </div>
 
-    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/918332993068?text=Hello!%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-whatsapp-green text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transform transition-transform hover:scale-110 hover:bg-whatsapp-green-hover">
         <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/></svg>
     </a>
-
-    <!-- Booking Modal -->
-    <div id="booking-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none">
-        <!-- Modal content -->
-        <div id="modal-content" class="relative bg-deep-blue rounded-2xl shadow-2xl w-full max-w-xl p-8 transform transition-all duration-300 ease-in-out scale-95 opacity-0">
-            <button id="close-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+    
+    <!-- --- [NEW] Service Booking Modal --- -->
+    <div id="service-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none">
+        <div id="service-modal-content" class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 transform transition-all duration-300 ease-in-out scale-95 opacity-0">
+            <button class="close-modal-button absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-            <div class="max-w-xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-sans font-semibold tracking-wide text-center mb-8">Book from Modal</h2>
-                <form action="https://formsubmit.co/deccancyclemart@gmail.com" method="POST" class="space-y-6">
-                    <div><input type="text" name="name" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Name"></div>
-                    <div><input type="tel" name="phone" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Phone Number"></div>
-                    <div>
-                        <textarea name="address" id="modal-address" rows="3" required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition" placeholder="Your Full Address"></textarea>
-                        <button type="button" id="modal-getLocationBtn" class="w-full mt-2 bg-deep-blue/60 hover:bg-deep-blue/90 text-white font-semibold py-2 px-4 border border-primary-blue/50 rounded-lg shadow-sm transition-colors flex items-center justify-center">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                           Use My Current Location
-                        </button>
-                        <p id="modal-location-status" class="text-sm mt-2 h-5 text-center"></p>
-                    </div>
-                    <input type="hidden" name="coordinates" id="modal-coordinates">
-                    <div><textarea name="service" id="modal-service" rows="3" placeholder="e.g., Assembly, Repair, Tuning, etc." required class="w-full bg-deep-blue/40 border-2 border-primary-blue/50 rounded-lg p-3 focus:border-accent-yellow focus:ring-accent-yellow transition"></textarea></div>
-                    <input type="hidden" name="_next" value="https://wa.me/918332993068?text=Hi, I just submitted a home service request on your website.">
-                    <input type="hidden" name="_subject" value="New Home Service Request from MODAL!">
-                    <input type="hidden" name="_captcha" value="false">
-                    <button type="submit" class="w-full bg-accent-yellow text-deep-blue font-bold text-lg py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">Submit Request</button>
-                </form>
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-deep-blue">Book Home Service</h2>
+                <p class="text-text-light mt-2">Enter your details and we'll arrange a pickup.</p>
             </div>
+            <form action="https://formsubmit.co/deccancyclemart@gmail.com" method="POST" class="space-y-4">
+                <input type="text" name="name" required class="w-full bg-gray-50 border-2 border-gray-300 rounded-lg p-3 focus:border-primary-blue focus:ring-primary-blue transition" placeholder="Your Name">
+                <input type="tel" name="phone" required class="w-full bg-gray-50 border-2 border-gray-300 rounded-lg p-3 focus:border-primary-blue focus:ring-primary-blue transition" placeholder="Your Phone Number">
+                <textarea name="address" rows="3" required class="w-full bg-gray-50 border-2 border-gray-300 rounded-lg p-3 focus:border-primary-blue focus:ring-primary-blue transition" placeholder="Your Full Address"></textarea>
+                <textarea name="issue" rows="3" required class="w-full bg-gray-50 border-2 border-gray-300 rounded-lg p-3 focus:border-primary-blue focus:ring-primary-blue transition" placeholder="Describe the issue with your cycle"></textarea>
+                <input type="hidden" name="_subject" value="New Home Service Request!">
+                <input type="hidden" name="_captcha" value="false">
+                <button type="submit" class="w-full card-button py-3 rounded-full text-lg">Submit Request</button>
+            </form>
         </div>
     </div>
 
+    <!-- --- [NEW] Exchange Value Modal --- -->
+    <div id="exchange-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none">
+        <div id="exchange-modal-content" class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 transform transition-all duration-300 ease-in-out scale-95 opacity-0">
+            <button class="close-modal-button absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors">
+                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-deep-blue">Check Exchange Value</h2>
+                <p class="text-text-light mt-2">Provide details of your old cycle to get an estimate.</p>
+            </div>
+            <form action="https://formsubmit.co/deccancyclemart@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-4">
+                <input type="text" name="name" required class="w-full bg-gray-50 border-2 border-gray-300 rounded-lg p-3 focus:border-primary-blue focus:ring-primary-blue transition" placeholder="Your Name">
+                <input type="tel" name="phone" required class="w-full bg-gray-50 border-2 border-gray-300 rounded-lg p-3 focus:border-primary-blue focus:ring-primary-blue transition" placeholder="Your Phone Number">
+                <input type="text" name="cycle_details" required class="w-full bg-gray-50 border-2 border-gray-300 rounded-lg p-3 focus:border-primary-blue focus:ring-primary-blue transition" placeholder="Bicycle Brand & Years Used (e.g., Hero, 3 years)">
+                <textarea name="address" rows="3" required class="w-full bg-gray-50 border-2 border-gray-300 rounded-lg p-3 focus:border-primary-blue focus:ring-primary-blue transition" placeholder="Your Full Address"></textarea>
+                <div>
+                    <label for="photos" class="block text-sm font-medium text-text-dark mb-2">Upload Photos (Optional, up to 3):</label>
+                    <input type="file" name="attachment" accept="image/*" multiple class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100"/>
+                </div>
+                <input type="hidden" name="_subject" value="New Exchange Request!">
+                <input type="hidden" name="_captcha" value="false">
+                <button type="submit" class="w-full card-button py-3 rounded-full text-lg">Get Estimate</button>
+            </form>
+        </div>
+    </div>
+
+
     <script>
-        // --- Mobile Menu Toggle ---
-        document.getElementById('mobile-menu-button').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.querySelector('header');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        // --- Booking Modal Logic ---
-        const bookingModal = document.getElementById('booking-modal');
-        const modalContent = document.getElementById('modal-content');
-        const openModalButtons = document.querySelectorAll('.open-modal-button');
-        const closeModalButton = document.getElementById('close-modal-button');
-
-        const openModal = () => {
-            bookingModal.classList.remove('opacity-0', 'pointer-events-none');
-            modalContent.classList.remove('opacity-0', 'scale-95');
-        };
-
-        const closeModal = () => {
-            modalContent.classList.add('opacity-0', 'scale-95');
-            bookingModal.classList.add('opacity-0');
-            setTimeout(() => {
-                bookingModal.classList.add('pointer-events-none');
-            }, 300); 
-        };
-
-        openModalButtons.forEach(button => button.addEventListener('click', openModal));
-        closeModalButton.addEventListener('click', closeModal);
-        
-        bookingModal.addEventListener('click', (event) => {
-            if (event.target === bookingModal) {
-                closeModal();
-            }
-        });
-
-
-        // --- Geolocation Function ---
-        function initializeGeolocation(btnId, addressId, coordinatesId, statusId) {
-            const getLocationBtn = document.getElementById(btnId);
-            const addressTextarea = document.getElementById(addressId);
-            const coordinatesInput = document.getElementById(coordinatesId);
-            const locationStatus = document.getElementById(statusId);
-            const apiKey = 'pk.364e92e46f917958d4ccfed120c0b0e4';
-
-            if (!getLocationBtn) return;
-
-            getLocationBtn.addEventListener('click', () => {
-                if (!navigator.geolocation) {
-                    locationStatus.textContent = '❗ Geolocation is not supported by your browser.';
-                    locationStatus.className = 'text-sm mt-2 h-5 text-center text-red-500';
-                    return;
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
-
-                locationStatus.textContent = 'Fetching your location...';
-                locationStatus.className = 'text-sm mt-2 h-5 text-center text-gray-400';
-                getLocationBtn.disabled = true;
-
-                navigator.geolocation.getCurrentPosition(
-                    (position) => success(position, addressTextarea, coordinatesInput, locationStatus, getLocationBtn, apiKey),
-                    () => error(locationStatus, getLocationBtn)
-                );
+            });
+        }
+        
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
         }
 
-        function success(position, addressTextarea, coordinatesInput, locationStatus, getLocationBtn, apiKey) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
+        const sections = document.querySelectorAll('main section[id]');
+        const navLinks = document.querySelectorAll('header nav a, #mobile-menu a[href^="#"]');
 
-            coordinatesInput.value = `${latitude}, ${longitude}`;
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.6 
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').endsWith(`#${id}`)) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        const assemblyContainer = document.getElementById('assembly-container');
+        if (assemblyContainer) {
+            const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let hasAnimated = false;
+
+            const magicFlash = document.getElementById('magic-flash');
+            const finalBikeImage = document.getElementById('final-bike-image');
             
-            const apiUrl = `https://us1.locationiq.com/v1/reverse.php?key=${apiKey}&lat=${latitude}&lon=${longitude}&format=json`;
+            const FROM_POSITIONS = {
+                'part-frame':       'translateX(-120%) translateY(10%) rotate(-25deg) scale(0.7)',
+                'part-wheel-front': 'translateX(120%) translateY(-10%) rotate(90deg) scale(0.7)',
+                'part-wheel-rear':  'translateX(120%) translateY(50%) rotate(-90deg) scale(0.7)',
+                'part-handle':      'translateY(-250%) scale(0.7)',
+                'part-seat':        'translateY(-300%) scale(0.7)',
+                'part-gears':       'translateY(250%) scale(0.7)',
+            };
+            
+            const parts = Object.keys(FROM_POSITIONS).map(id => document.getElementById(id));
 
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    if (data && data.display_name) {
-                        addressTextarea.value = data.display_name;
-                    }
-                })
-                .catch(err => {
-                    console.error('Error fetching address:', err);
-                })
-                .finally(() => {
-                    locationStatus.textContent = '✅ Location Captured Successfully';
-                    locationStatus.className = 'text-sm mt-2 h-5 text-center text-green-500';
-                    getLocationBtn.disabled = false;
+            const initializePartPositions = () => {
+                parts.forEach(part => {
+                    if (!part) return;
+                    part.style.transition = 'none';
+                    part.style.opacity = '0';
+                    part.style.transform = FROM_POSITIONS[part.id];
                 });
+                finalBikeImage.classList.remove('visible');
+                magicFlash.classList.remove('animate');
+            };
+
+            const startAssembly = () => {
+                if (hasAnimated) return;
+                hasAnimated = true;
+
+                if (isReducedMotion) {
+                    finalBikeImage.classList.add('visible');
+                    return;
+                }
+                
+                parts.forEach((part, index) => {
+                    if (!part) return;
+                    setTimeout(() => {
+                        part.style.transition = 'opacity 0.8s ease-out, transform 1.5s cubic-bezier(0.23, 1, 0.32, 1)';
+                        part.style.opacity = '1';
+                        part.style.transform = 'translate(-50%, -50%)';
+                    }, index * 150);
+                });
+                
+                setTimeout(() => {
+                    magicFlash.classList.add('animate');
+                }, 1600); 
+
+                setTimeout(() => {
+                    parts.forEach(p => {
+                        p.style.transition = 'opacity 0.3s ease-out';
+                        p.style.opacity = '0';
+                    });
+                }, 1700);
+
+                setTimeout(() => {
+                    finalBikeImage.classList.add('visible');
+                }, 1900);
+            };
+            
+            initializePartPositions(); 
+
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        startAssembly();
+                        observer.unobserve(assemblyContainer);
+                    }
+                }, { threshold: 0.3 });
+                observer.observe(assemblyContainer);
+            } else {
+                startAssembly();
+            }
+        }
+        
+        // --- [NEW] Modal Handling Logic ---
+        function initializeModal(modalId, openButtonsClass, contentId) {
+            const modal = document.getElementById(modalId);
+            const openButtons = document.querySelectorAll(`.${openButtonsClass}`);
+            const content = document.getElementById(contentId);
+            const closeButtons = modal.querySelectorAll('.close-modal-button');
+
+            const openModal = () => {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                content.classList.remove('opacity-0', 'scale-95');
+            };
+            const closeModal = () => {
+                content.classList.add('opacity-0', 'scale-95');
+                modal.classList.add('opacity-0');
+                setTimeout(() => modal.classList.add('pointer-events-none'), 300);
+            };
+
+            openButtons.forEach(btn => btn.addEventListener('click', openModal));
+            closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
         }
 
-        function error(locationStatus, getLocationBtn) {
-            locationStatus.textContent = '❗ Unable to get location. Please enter address manually.';
-            locationStatus.className = 'text-sm mt-2 h-5 text-center text-red-500';
-            getLocationBtn.disabled = false;
-        }
+        initializeModal('service-modal', 'open-service-modal', 'service-modal-content');
+        initializeModal('exchange-modal', 'open-exchange-modal', 'exchange-modal-content');
 
-        // --- Initialize Geolocation for BOTH forms ---
-        // Initialize for the visible page form
-        initializeGeolocation('page-getLocationBtn', 'page-address', 'page-coordinates', 'page-location-status');
-        // Initialize for the modal form
-        initializeGeolocation('modal-getLocationBtn', 'modal-address', 'modal-coordinates', 'modal-location-status');
-
+    });
     </script>
 </body>
 </html>
+

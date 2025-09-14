@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get in touch with Deccan Cycle Mart, Bollaram's leading cycle shop. Contact us for sales, expert service, or any inquiries. We're ready to assist you.">
-    <meta name="keywords" content="contact Deccan Cycle Mart, cycle shop Bollaram, bicycle repair contact, bike service Secunderabad">
+    <meta name="description" content="Since 1989, Deccan Cycle Mart has been Secunderabad's trusted, family-run cycle shop. Discover our 35-year story, our core values, and our unwavering commitment to the cycling community.">
+    <meta name="keywords" content="about us, cycle shop story, Deccan Cycle Mart history, Secunderabad bike shop, since 1989">
     <meta name="author" content="Deccan Cycle Mart">
-    <title>Contact Us - Deccan Cycle Mart</title>
+    <title>Our Story - Deccan Cycle Mart Since 1989</title>
     <link rel="icon" type="image/png" href="DECCAN.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,23 +20,23 @@
                         'primary-blue': '#287cb2',
                         'deep-blue': '#064771', // Title Color
                         'accent-yellow': '#fded0d', // Button & Glow Color
-                        'light-bg': '#f9fafb', // Lighter than f8.9fa
+                        'light-bg': '#f9fafb',
                         'text-dark': '#1e293b',
                         'text-light': '#64748b',
                         'text-neutral-grey': '#6c757d', // Description Color
                         'border-light-grey': '#e5e7eb', // Input/Card border
                         'whatsapp-green': '#25D366',
                         'whatsapp-green-hover': '#1ebc59',
-                        'footer-bg': '#f0f4f8', 
+                        'footer-bg': '#f0f4f8',
                     },
                     fontFamily: { 
                         sans: ['Inter', 'sans-serif'],
                         montserrat: ['Montserrat', 'sans-serif'] 
                     },
                     borderRadius: {
-                        '4xl': '1.5rem', 
-                        '2xl': '1rem',   
-                        'xl': '0.75rem',  
+                        '4xl': '1.5rem',
+                        '2xl': '1rem',
+                        'xl': '0.75rem',
                     }
                 }
             }
@@ -45,7 +45,7 @@
     <style>
         html { scroll-behavior: smooth; }
         body {
-            background-color: #FFFFFF;
+            background-color: #FFFFFF; /* Pure white background */
             position: relative;
             overflow-x: hidden;
         }
@@ -53,18 +53,20 @@
             position: relative;
             z-index: 1;
         }
+        /* --- Glassmorphism Card Style --- */
         .content-card {
-            background: rgba(249, 250, 251, 0.85);
+            background: rgba(249, 250, 251, 0.7);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(230, 232, 236, 0.6);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08), 0 0 30px rgba(40, 124, 178, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08), 0 0 25px rgba(40, 124, 178, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .content-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.1), 0 0 50px rgba(40, 124, 178, 0.2);
         }
+        /* --- Premium Button Styles --- */
         .premium-button {
             font-weight: 700;
             transition: transform 0.2s ease, box-shadow 0.3s ease;
@@ -73,18 +75,9 @@
         }
         .premium-button:hover {
             transform: scale(1.03);
-            box-shadow: 0 0 25px 5px rgba(255, 215, 0, 0.7);
+            box-shadow: 0 0 25px 5px rgba(255, 215, 0, 0.7); /* Golden glow */
         }
-        .premium-button-blue {
-            font-weight: 700;
-            transition: transform 0.2s ease, box-shadow 0.3s ease;
-            color: #FFFFFF;
-            background-color: #064771;
-        }
-        .premium-button-blue:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 25px 5px rgba(40, 124, 178, 0.6); 
-        }
+        /* Section Fade-in Animation */
         .fade-in-section {
             opacity: 0;
             transform: translateY(30px);
@@ -94,35 +87,58 @@
             opacity: 1;
             transform: translateY(0);
         }
-        @media (prefers-reduced-motion: reduce) {
-            * { animation: none !important; transition: none !important; }
+        
+        /* --- Image Carousel Animation --- */
+        @keyframes carousel-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .animate-carousel {
+            width: 400%; 
+            animation: carousel-scroll 20s linear infinite;
+        }
+        .animate-carousel:hover {
+            animation-play-state: paused;
         }
 
-        /* Floating WhatsApp Button CSS */
+        /* --- Floating WhatsApp Button --- */
         .floating-whatsapp-button { 
+            /* Positioning */ 
             position: fixed; 
-            bottom: 24px;
-            right: 24px; 
+            bottom: 24px; /* Corresponds to bottom-6 */ 
+            right: 24px;  /* Corresponds to right-6 */ 
             z-index: 50; 
-            width: 64px; 
-            height: 64px;
-            background-color: #25D366;
+
+            /* Box Model & Sizing */ 
+            width: 64px;  /* Corresponds to w-16 */ 
+            height: 64px; /* Corresponds to h-16 */ 
+             
+            /* Styling */ 
+            background-color: #25D366; /* Original 'whatsapp-green' color */ 
             color: #ffffff; 
-            border-radius: 9999px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-radius: 9999px; /* Corresponds to rounded-full */ 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Corresponds to shadow-lg */ 
+             
+            /* Flexbox for Centering Icon */ 
             display: flex; 
             align-items: center; 
             justify-content: center; 
+             
+            /* Transitions */ 
             transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out; 
         }
+        
         .floating-whatsapp-button:hover { 
-            background-color: #1ebc59;
-            transform: scale(1.10);
+            background-color: #1ebc59; /* Original 'whatsapp-green-hover' color */ 
+            transform: scale(1.10); /* Corresponds to hover:scale-110 */ 
         }
+        
+        /* Styling for the SVG icon inside the button */
         .whatsapp-icon { 
-            width: 36px;
-            height: 36px;
+            width: 36px;  /* Corresponds to w-9 */ 
+            height: 36px; /* Corresponds to h-9 */ 
         }
+
     </style>
 </head>
 <body class="text-text-dark font-sans antialiased">
@@ -137,10 +153,10 @@
                     </a>
                     <nav class="hidden md:flex items-center space-x-8">
                         <a href="index.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">Home</a>
-                        <a href="about.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">About Us</a>
+                        <a href="about.html" class="font-semibold text-primary-blue border-b-2 border-primary-blue pb-1">About Us</a>
                         <a href="services.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">Service</a>
                         <a href="media.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">Media</a>
-                        <a href="contact.html" class="font-semibold text-primary-blue border-b-2 border-primary-blue pb-1">Contact</a>
+                        <a href="contact.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">Contact</a>
                     </nav>
                     <button type="button" class="open-service-modal hidden md:inline-block premium-button py-3 px-6 rounded-xl text-base">
                         Book Service
@@ -150,56 +166,40 @@
         </header>
 
         <main class="flex-grow">
-            <section class="text-center py-20 md:py-28 font-montserrat">
-                <div class="max-w-screen-md mx-auto px-6">
-                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-deep-blue">Get In Touch</h1>
-                    <p class="mt-6 text-lg md:text-xl text-text-neutral-grey leading-relaxed">
-                        We're here to help with all your cycling needs. Whether you have a question about our products, services, or just want to talk about bikes, we'd love to hear from you.
+            <!-- About Hero Section -->
+            <section class="font-montserrat text-center pt-20 md:pt-28">
+                <div class="max-w-screen-xl mx-auto px-6">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-deep-blue mb-4">Your Cycling Partner Since 1989.</h1>
+                    <p class="text-lg md:text-xl text-text-neutral-grey max-w-3xl mx-auto">
+                        Since 1989, we've been more than just a cycle shop. We're a family-run pillar of the Secunderabad community, dedicated to sharing the pure joy of cycling.
                     </p>
-                    <a href="#contact-form" class="inline-block mt-8 premium-button py-4 px-10 rounded-xl text-lg">
-                        Send a Message
-                    </a>
                 </div>
             </section>
 
-            <section id="contact-form" class="py-10 md:py-20 bg-light-bg fade-in-section">
-                <div class="max-w-screen-xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                    
-                    <div class="content-card rounded-2xl p-8">
-                        <h2 class="text-3xl font-bold text-deep-blue mb-6">Send Us a Message</h2>
-                        <form action="https://formsubmit.co/deccancyclemart@gmail.com" method="POST" class="space-y-4">
-                            <input type="text" name="name" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue transition" placeholder="Your Name">
-                            <input type="tel" name="phone" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue transition" placeholder="Your Phone Number">
-                            <input type="email" name="email" class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue transition" placeholder="Your Email">
-                            <textarea name="message" rows="5" class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue transition" placeholder="Your Message"></textarea>
-                            <input type="hidden" name="_subject" value="New Contact Form Submission!">
-                            <button type="submit" class="w-full premium-button-blue py-3 rounded-xl text-lg">Send Message</button>
-                        </form>
+            <!-- Our Story Section -->
+            <section class="fade-in-section my-20 md:my-28">
+                <div class="max-w-screen-xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="order-2 md:order-1">
+                        <h2 class="text-3xl md:text-4xl font-bold text-deep-blue mb-6 font-montserrat">Our Story</h2>
+                        <div class="space-y-4 text-text-neutral-grey text-base leading-relaxed">
+                            <p>
+                                Established in 1989, Deccan Cycle Mart is a legacy built on a simple promise: to deliver a tension-free cycling experience. From our humble beginnings in Secunderabad, we have become a trusted partner for generations of families, guiding them from a child’s first tricycle to a professional’s performance bike.
+                            </p>
+                            <p>
+                                Today, we are blending our three-decade heritage with a renewed professional focus. Our mission remains the same — to offer honest advice, reliable after-service, and access to the best cycle brands in the country. We believe that every cycle we sell is a smile delivered, and we are proud to continue that tradition.
+                            </p>
+                        </div>
                     </div>
-
-                    <div class="space-y-8">
-                        <h2 class="text-3xl font-bold text-deep-blue">Contact Information</h2>
-                        <div class="space-y-6">
-                            <div class="flex items-start gap-4">
-                                <div class="bg-primary-blue/10 p-3 rounded-full"><svg class="w-6 h-6 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
-                                <div>
-                                    <h3 class="text-xl font-semibold text-deep-blue">Our Address</h3>
-                                    <p class="text-text-neutral-grey mt-1">Opp Ushodaya, New Bollaram, Secunderabad 500010</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="bg-primary-blue/10 p-3 rounded-full"><svg class="w-6 h-6 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
-                                <div>
-                                    <h3 class="text-xl font-semibold text-deep-blue">Phone & WhatsApp</h3>
-                                    <a href="tel:+918332993068" class="text-text-neutral-grey hover:text-primary-blue transition block mt-1">+91 8332993068</a>
-                                    <a href="https://wa.me/918332993068" target="_blank" class="text-text-neutral-grey hover:text-primary-blue transition block">Chat with us on WhatsApp</a>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="bg-primary-blue/10 p-3 rounded-full"><svg class="w-6 h-6 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
-                                <div>
-                                    <h3 class="text-xl font-semibold text-deep-blue">Email</h3>
-                                    <a href="mailto:deccancyclemart@gmail.com" class="text-text-neutral-grey hover:text-primary-blue transition mt-1">deccancyclemart@gmail.com</a>
+                    <div class="order-1 md:order-2">
+                        <div class="content-card rounded-2xl shadow-xl w-full max-w-md mx-auto p-3">
+                            <div class="rounded-lg w-full overflow-hidden aspect-square">
+                                <div class="flex animate-carousel h-full">
+                                    <!-- Original Images -->
+                                    <img src="unnamed.webp" alt="Deccan Cycle Mart storefront in the daytime" class="w-1/4 h-full flex-shrink-0 object-cover">
+                                    <img src="2024-08-25.webp" alt="Deccan Cycle Mart storefront at night" class="w-1/4 h-full flex-shrink-0 object-cover">
+                                    <!-- Duplicated Images for Seamless Loop -->
+                                    <img src="unnamed.webp" alt="Deccan Cycle Mart storefront in the daytime" class="w-1/4 h-full flex-shrink-0 object-cover">
+                                    <img src="2024-08-25.webp" alt="Deccan Cycle Mart storefront at night" class="w-1/4 h-full flex-shrink-0 object-cover">
                                 </div>
                             </div>
                         </div>
@@ -207,19 +207,102 @@
                 </div>
             </section>
             
-            <section class="py-10 md:py-20 fade-in-section">
-                <div class="max-w-screen-xl mx-auto px-6 text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold text-deep-blue">Find Us Here</h2>
-                    <p class="text-lg text-text-neutral-grey mt-3 max-w-3xl mx-auto">Visit our store for a hands-on experience with our wide range of cycles and accessories.</p>
-                    <div class="mt-8">
-                        <iframe 
-                            src="https://www.google.com/maps?q=Deccan+Cycle+Mart,+New+Bollaram,+Secunderabad+500010&output=embed"
-                            class="w-full h-96 rounded-2xl border border-border-light-grey shadow-lg"
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+            <!-- Our Journey / Timeline Section -->
+            <section class="fade-in-section my-20 md:my-28">
+                <div class="max-w-screen-md mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-deep-blue font-montserrat">Our Journey Since 1989</h2>
+                        <p class="text-lg text-text-neutral-grey mt-4 max-w-2xl mx-auto">Three decades of passion, dedication, and community trust.</p>
+                    </div>
+                    <div class="relative">
+                        <!-- Vertical line -->
+                        <div class="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border-light-grey"></div>
+                        <!-- Timeline Items -->
+                        <div class="space-y-16">
+                            <!-- Item 1: Founded -->
+                            <div class="flex justify-center items-center">
+                                <div class="w-2/5 text-right pr-8">
+                                    <h3 class="font-bold text-xl text-deep-blue">1989</h3>
+                                    <p class="text-text-neutral-grey">Deccan Cycle Mart opens its doors in Secunderabad with a mission to serve the local community.</p>
+                                </div>
+                                <div class="bg-primary-blue w-6 h-6 rounded-full z-10 border-4 border-white"></div>
+                                <div class="w-2/5"></div>
+                            </div>
+                             <!-- Item 2: Trusted -->
+                            <div class="flex justify-center items-center">
+                                <div class="w-2/5"></div>
+                                <div class="bg-primary-blue w-6 h-6 rounded-full z-10 border-4 border-white"></div>
+                                <div class="w-2/5 text-left pl-8">
+                                     <h3 class="font-bold text-xl text-deep-blue">2000s</h3>
+                                    <p class="text-text-neutral-grey">Became the go-to cycle shop for local families, building a reputation for trust and quality.</p>
+                                </div>
+                            </div>
+                            <!-- Item 3: Modern Day -->
+                            <div class="flex justify-center items-center">
+                                <div class="w-2/5 text-right pr-8">
+                                    <h3 class="font-bold text-xl text-deep-blue">Today</h3>
+                                    <p class="text-text-neutral-grey">Combining decades of expertise with modern services like free home pickup, rentals, and easy exchanges.</p>
+                                </div>
+                                <div class="bg-primary-blue w-6 h-6 rounded-full z-10 border-4 border-white"></div>
+                                <div class="w-2/5"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- What We Stand For Section -->
+            <section id="values" class="font-montserrat fade-in-section my-20 md:my-28">
+                <div class="w-full mx-auto px-6 sm:px-8 md:px-12">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-deep-blue">What We Stand For</h2>
+                        <p class="text-lg text-text-neutral-grey mt-4 max-w-2xl mx-auto">Our commitment to you, sealed with every rotation of the pedal.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-screen-xl mx-auto gap-8">
+                        <div class="content-card rounded-2xl p-8 flex flex-col text-center items-center">
+                            <div class="mb-5 text-4xl">❤️</div>
+                            <h3 class="text-xl font-bold mb-3 text-deep-blue">First Ride, First Joy</h3>
+                            <p class="text-base text-text-neutral-grey">We cherish the magic of a first bike ride and ensure every child starts their journey with a smile.</p>
+                        </div>
+                        <div class="content-card rounded-2xl p-8 flex flex-col text-center items-center">
+                            <div class="mb-5 text-4xl">👨‍👩‍👧‍👦</div>
+                            <h3 class="text-xl font-bold mb-3 text-deep-blue">Trusted by Generations</h3>
+                            <p class="text-base text-text-neutral-grey">Our legacy is built on the trust of the local community we've proudly served since 1989.</p>
+                        </div>
+                        <div class="content-card rounded-2xl p-8 flex flex-col text-center items-center">
+                            <div class="mb-5 text-4xl">🏷️</div>
+                            <h3 class="text-xl font-bold mb-3 text-deep-blue">Honest, Fair Pricing</h3>
+                            <p class="text-base text-text-neutral-grey">We provide transparent pricing so you can make confident decisions without any pressure.</p>
+                        </div>
+                        <div class="content-card rounded-2xl p-8 flex flex-col text-center items-center">
+                            <div class="mb-5 text-4xl">🛠️</div>
+                            <h3 class="text-xl font-bold mb-3 text-deep-blue">Reliable After-Service</h3>
+                            <p class="text-base text-text-neutral-grey">Our commitment doesn't end at the sale. We offer expert repairs and free home pickup.</p>
+                        </div>
+                        <div class="content-card rounded-2xl p-8 flex flex-col text-center items-center">
+                            <div class="mb-5 text-4xl">⭐</div>
+                            <h3 class="text-xl font-bold mb-3 text-deep-blue">Curated Top Brands</h3>
+                            <p class="text-base text-text-neutral-grey">We stock only the best and most reliable brands, ensuring quality for every rider.</p>
+                        </div>
+                        <div class="content-card rounded-2xl p-8 flex flex-col text-center items-center">
+                            <div class="mb-5 text-4xl">✅</div>
+                            <h3 class="text-xl font-bold mb-3 text-deep-blue">A Tension-Free Experience</h3>
+                            <p class="text-base text-text-neutral-grey">From purchase to maintenance, our goal is to make your entire cycling journey smooth and worry-free.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="py-20 md:py-28">
+                <div class="relative max-w-4xl mx-auto px-6 text-center">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-[500px] h-[500px] bg-gradient-to-tr from-primary-blue/30 via-accent-yellow/20 to-primary-blue/30 rounded-full blur-3xl opacity-50"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <h2 class="text-3xl md:text-4xl font-bold text-deep-blue mb-4 font-montserrat">Ready to Start Your Journey?</h2>
+                        <p class="text-text-neutral-grey mb-8">Have questions? Get in touch with our friendly team.</p>
+                        <a href="contact.html" class="inline-block premium-button py-4 px-10 rounded-xl text-lg">Get In Touch</a>
                     </div>
                 </div>
             </section>
@@ -230,9 +313,9 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center sm:text-left">
                     <div class="flex flex-col items-center sm:items-start">
                          <a href="index.html" class="flex items-center gap-2 mb-4">
-                             <img src="blue deccan logo.png" alt="Deccan Cycle Mart Logo" class="h-10 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x40/064771/ffffff?text=Logo';">
-                             <span class="text-xl font-bold text-deep-blue">Deccan Cycle Mart</span>
-                         </a>
+                            <img src="blue deccan logo.png" alt="Deccan Cycle Mart Logo" class="h-10 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x40/064771/ffffff?text=Logo';">
+                            <span class="text-xl font-bold text-deep-blue">Deccan Cycle Mart</span>
+                        </a>
                         <p class="text-text-neutral-grey">Proudly serving Bollaram, Kompally, Kowkoor, Alwal, Jonnabanda and Deliveries to nearby Secunderabad on request.</p>
                     </div>
                     <div class="lg:mx-auto">
@@ -256,12 +339,12 @@
                      <div class="lg:ml-auto">
                          <h3 class="text-lg font-semibold text-deep-blue mb-4">Find Us Here</h3>
                          <iframe 
-                            src="https://www.google.com/maps?q=Deccan+Cycle+Mart,+New+Bollaram,+Secunderabad+500010&output=embed"
-                            class="w-full h-48 rounded-xl border border-border-light-grey"
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
+                             src="https://www.google.com/maps?q=Deccan+Cycle+Mart,+New+Bollaram,+Secunderabad+500010&output=embed"
+                             class="w-full h-48 rounded-xl border border-border-light-grey"
+                             style="border:0;" 
+                             allowfullscreen="" 
+                             loading="lazy" 
+                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                 </div>
@@ -270,10 +353,9 @@
                 </div>
             </div>
         </footer>
-
     </div>
 
-    <!-- Service Modal HTML -->
+    <!-- Modal HTML -->
     <div id="service-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none">
         <div id="service-modal-content" class="content-card relative rounded-2xl w-full max-w-lg p-8 transform transition-all duration-300 ease-in-out scale-95 opacity-0">
             <button class="close-modal-button absolute top-4 right-4 text-gray-400 hover:text-gray-800"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
@@ -284,7 +366,6 @@
             <form action="https://formsubmit.co/deccancyclemart@gmail.com" method="POST" class="space-y-4">
                 <input type="text" name="name" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue" placeholder="Your Name">
                 <input type="tel" name="phone" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue" placeholder="Your Phone Number">
-                
                 <div>
                     <textarea id="modal-address" name="address" rows="3" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue transition" placeholder="Your Full Address"></textarea>
                     <button type="button" id="modal-getLocationBtn" class="mt-2 w-full text-deep-blue font-semibold py-2 px-4 border border-deep-blue rounded-xl transition-colors flex items-center justify-center hover:bg-deep-blue hover:text-white">
@@ -293,7 +374,6 @@
                     </button>
                     <p id="modal-location-status" class="text-sm text-center mt-2 h-5"></p>
                 </div>
-
                 <select name="service_type" required class="w-full bg-white/50 border border-border-light-grey rounded-xl p-3 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue text-gray-500">
                     <option value="" disabled selected>Select Service Type</option>
                     <option>Service and Repair</option>
@@ -305,7 +385,6 @@
                     <option>Electric Kit Install</option>
                     <option>Others</option>
                 </select>
-
                 <input type="hidden" name="_subject" value="New Modal Service Request!"><input type="hidden" name="_captcha" value="false">
                 <button type="submit" class="w-full premium-button py-3 rounded-xl text-lg">Submit Request</button>
                 <p class="text-xs text-text-neutral-grey text-center pt-2">We respect your privacy. Your data is used only to serve you better.</p>
@@ -313,9 +392,20 @@
         </div>
     </div>
 
-    <!-- JavaScript for Modal Functionality -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // --- Fade-in sections on scroll ---
+        const fadeInObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(target => fadeInObserver.observe(target));
+
+        // --- Modal Functionality ---
         function initializeModal(modalId, openButtonsClass) {
             const modal = document.getElementById(modalId);
             if (!modal) return;
@@ -335,19 +425,9 @@
             closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
             modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
         }
-        
         initializeModal('service-modal', 'open-service-modal');
 
-        const fadeInObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in-section').forEach(target => fadeInObserver.observe(target));
-        
+        // --- Geolocation for Modal ---
         const geoBtn = document.getElementById('modal-getLocationBtn');
         const addressField = document.getElementById('modal-address');
         const statusMsg = document.getElementById('modal-location-status');
@@ -393,6 +473,7 @@
     });
     </script>
     
+    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/918332993068?text=Hello!%20I%20have%20a%20question." 
         target="_blank" 
         rel="noopener noreferrer" 
@@ -401,6 +482,7 @@
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.908 6.161l.16.244-1.149 4.204 4.288-1.121.232.165z"/> 
         </svg>
     </a> 
+
 </body>
 </html>
 
